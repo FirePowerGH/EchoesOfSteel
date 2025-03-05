@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://diu10ul04ueqw"]
 
-[ext_resource type="Script" path="res://button.gd" id="1_k3qqi"]
+[ext_resource type="Script" path="res://game/ui/menu/scripts/button.gd" id="1_wwg2j"]
 
 [node name="mainMenu" type="Control"]
 layout_mode = 3
@@ -25,6 +25,6 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 32
 text = "Start Game
 "
-script = ExtResource("1_k3qqi")
+script = ExtResource("1_wwg2j")
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8cn5yj2l61g4"
-path="res://.godot/imported/spriteSheetWalkStand.png-f181bcf9c9e35762fb0febb2988ae58d.ctex"
+uid="uid://bsn4oprh4bser"
+path="res://.godot/imported/spriteSheetWalkStand.png-9d5ed84ade060d4e40093e5236d33701.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://spriteSheetWalkStand.png"
-dest_files=["res://.godot/imported/spriteSheetWalkStand.png-f181bcf9c9e35762fb0febb2988ae58d.ctex"]
+source_file="res://game/entities/player/sprites/spriteSheetWalkStand.png"
+dest_files=["res://.godot/imported/spriteSheetWalkStand.png-9d5ed84ade060d4e40093e5236d33701.ctex"]
 
 [params]
 
