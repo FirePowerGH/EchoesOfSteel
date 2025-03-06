@@ -15,10 +15,6 @@ run/main_scene="res://game/world/overworld/test_scene.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
-[display]
-
-window/stretch/scale=3.0
-
 [input]
 
 left={

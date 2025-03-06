@@ -91,10 +91,10 @@ func get_input_direction():
 	
 	if Input.is_action_pressed(\"right\"):
 		direction.x = 1
-		sprite.scale.x = 0.5
+		sprite.flip_h = false
 	elif Input.is_action_pressed(\"left\"):
 		direction.x = -1
-		sprite.scale.x = -0.5
+		sprite.flip_h = true
 	if Input.is_action_pressed(\"up\"):
 		direction.y = -1
 	elif Input.is_action_pressed(\"down\"):
@@ -174,7 +174,7 @@ metadata/_edit_group_ = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(-1.19209e-07, -1.19209e-07)
-scale = Vector2(0.417969, 0.417969)
+scale = Vector2(0.42, 0.42)
 sprite_frames = SubResource("SpriteFrames_ktmlj")
 animation = &"idle"
 frame_progress = 0.616392
@@ -191,4 +191,5 @@ wait_time = 0.25
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(8, 8)
 position_smoothing_enabled = true
