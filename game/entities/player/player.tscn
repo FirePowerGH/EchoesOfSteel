@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://sxwxwnqvibvf"]
+[gd_scene load_steps=12 format=3 uid="uid://sxwxwnqvibvf"]
 
-[ext_resource type="Texture2D" uid="uid://bsn4oprh4bser" path="res://spriteSheetWalkStand.png" id="1_r4c8x"]
+[ext_resource type="Texture2D" uid="uid://bcetc4sgh0wom" path="res://game/entities/player/sprites/IdleSprite.png" id="1_pn68t"]
+[ext_resource type="Texture2D" uid="uid://bsn4oprh4bser" path="res://game/entities/player/sprites/spriteSheetWalkStand.png" id="1_r4c8x"]
 
 [sub_resource type="GDScript" id="GDScript_hhx74"]
 script/source = "extends CharacterBody2D
@@ -107,9 +108,21 @@ func _ready():
 	dash_cooldown.timeout.connect(_on_DashCooldown_timeout)
 "
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_t4y7j"]
-atlas = ExtResource("1_r4c8x")
+[sub_resource type="AtlasTexture" id="AtlasTexture_dv0pe"]
+atlas = ExtResource("1_pn68t")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1y6sj"]
+atlas = ExtResource("1_pn68t")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8djxa"]
+atlas = ExtResource("1_pn68t")
 region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwa8n"]
+atlas = ExtResource("1_pn68t")
+region = Rect2(64, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8qcvo"]
 atlas = ExtResource("1_r4c8x")
@@ -123,11 +136,20 @@ region = Rect2(64, 0, 64, 64)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t4y7j")
+"texture": SubResource("AtlasTexture_dv0pe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1y6sj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8djxa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwa8n")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"idle",
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -154,11 +176,11 @@ texture_filter = 1
 position = Vector2(-1.19209e-07, -1.19209e-07)
 scale = Vector2(0.417969, 0.417969)
 sprite_frames = SubResource("SpriteFrames_ktmlj")
-animation = &"walk"
-frame = 1
-frame_progress = 0.0979903
+animation = &"idle"
+frame_progress = 0.616392
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_at7hy")
 
 [node name="CoyoteTime" type="Timer" parent="."]
