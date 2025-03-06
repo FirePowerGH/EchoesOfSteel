@@ -83,7 +83,7 @@ func handle_movement(direction):
 		sprite.play(\"walk\")
 		velocity.x = move_toward(velocity.x, direction.x * SPEED, 36.0)
 	else:
-		sprite.play(\"default\")
+		sprite.play(\"idle\")
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 func get_input_direction():
@@ -180,7 +180,6 @@ animation = &"idle"
 frame_progress = 0.616392
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CapsuleShape2D_at7hy")
 
 [node name="CoyoteTime" type="Timer" parent="."]
