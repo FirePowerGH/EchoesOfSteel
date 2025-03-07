@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" path="res://game/world/overworld/sprites/Block_tilesheet.png" id="1_yk6gi"]
 [ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="2_gpwft"]
+[ext_resource type="PackedScene" uid="uid://b3v4bqm2rnaeq" path="res://common/start_dungeon.tscn" id="3_kl8v2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2r1ga"]
 texture = ExtResource("1_yk6gi")
@@ -38,4 +39,7 @@ tile_map_data = PackedByteArray("AAAAAA4AAAAAAAAAAAABAA4AAAAAAAAAAAACAA4AAAAAAAA
 tile_set = SubResource("TileSet_753l8")
 
 [node name="Player" parent="." instance=ExtResource("2_gpwft")]
-position = Vector2(55, 113)
+position = Vector2(428, 167)
+
+[node name="startDungeon" parent="." instance=ExtResource("3_kl8v2")]
+position = Vector2(677, 163)
