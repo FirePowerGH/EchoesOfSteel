@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mkl64b7hukgw"
-path="res://.godot/imported/Block_tilesheet.png-31a441689186a9d3b367d3f54fc10399.ctex"
+uid="uid://i61by6v28p60"
+path="res://.godot/imported/TileMapWIP.png-a8d60708e8446f6471875b19654f70ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/world/overworld/sprites/Block_tilesheet.png"
-dest_files=["res://.godot/imported/Block_tilesheet.png-31a441689186a9d3b367d3f54fc10399.ctex"]
+source_file="res://game/world/overworld/world1/sprites/TileMapWIP.png"
+dest_files=["res://.godot/imported/TileMapWIP.png-a8d60708e8446f6471875b19654f70ff.ctex"]
 
 [params]
 

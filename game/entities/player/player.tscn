@@ -17,6 +17,8 @@ var is_dashing = false
 var can_dash = true
 var can_jump = false
 
+var level = 0
+
 @onready var coyote_time = $CoyoteTime
 @onready var dash_cooldown = $DashCooldown
 @onready var sprite = $AnimatedSprite2D
@@ -103,6 +105,15 @@ func get_input_direction():
 	direction = direction.normalized()
 	
 	return direction
+
+func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed(\"reset\"):
+		if level == 0:
+			get_tree().change_scene_to_file(\"res://game/world/overworld/test_world/test_scene.tscn\")
+			level = level + 1
+		elif level == 1:
+			get_tree().change_scene_to_file(\"res://game/world/overworld/world1/world1.tscn\")
+			level = 0
 
 func _ready():
 	dash_cooldown.timeout.connect(_on_DashCooldown_timeout)
