@@ -23,6 +23,7 @@ var level = 0
 @onready var coyote_time = $CoyoteTime
 @onready var dash_cooldown = $DashCooldown
 @onready var sprite = $AnimatedSprite2D
+@onready var ray_to_ground = $DistanceToGround
 
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
@@ -96,7 +97,10 @@ func animateState():
 	if velocity == Vector2.ZERO:
 		sprite.play(\"idle\")
 	elif velocity.y > 0:
-		sprite.play(\"fall\")
+		if ray_to_ground.is_colliding():
+			sprite.play(\"fallFin\")
+		else:
+			sprite.play(\"fall\")
 	elif velocity.x != 0:
 		sprite.play(\"walk\")
 
@@ -249,7 +253,6 @@ sprite_frames = SubResource("SpriteFrames_ktmlj")
 animation = &"fallFin"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("CapsuleShape2D_at7hy")
 
 [node name="CoyoteTime" type="Timer" parent="."]
@@ -263,3 +266,7 @@ one_shot = true
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
 position_smoothing_enabled = true
+
+[node name="DistanceToGround" type="RayCast2D" parent="."]
+position = Vector2(0, 8)
+target_position = Vector2(0, 32)
