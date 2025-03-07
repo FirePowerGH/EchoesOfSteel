@@ -18,12 +18,13 @@ var is_dashing = false
 var can_dash = true
 var can_jump = false
 
-var level = 0
-
 @onready var coyote_time = $CoyoteTime
 @onready var dash_cooldown = $DashCooldown
 @onready var sprite = $AnimatedSprite2D
 @onready var ray_to_ground = $DistanceToGround
+
+func _ready():
+	dash_cooldown.timeout.connect(_on_DashCooldown_timeout)
 
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
@@ -37,9 +38,21 @@ func _physics_process(delta: float) -> void:
 	
 	canDash()
 	
+	var gravity = get_gravity()
+	
+	# Walljump
+	if is_on_wall():
+		if velocity.y > 0:
+			gravity = Vector2(0, 320)
+		if Input.is_action_just_pressed(\"jump\"):
+			if velocity.x < 0:
+				velocity = Vector2(200, -270)
+			elif velocity.x > 0:
+				velocity = Vector2(-200, -270)
+	
 	# Add the gravity.
 	if not is_on_floor() and !is_dashing:
-		velocity += get_gravity() * delta
+		velocity += gravity * delta
 	
 	# Jump.
 	if Input.is_action_just_pressed(\"jump\") && (canJump()):
@@ -49,12 +62,6 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_released(\"jump\"):
 		if velocity.y <   0:
 			velocity.y = JUMP_VELOCITY / 4
-	
-	if is_on_wall() && (Input.is_action_just_pressed(\"jump\")):
-		if velocity.x < 0:
-			velocity = Vector2(200, -270)
-		elif velocity.x > 0:
-			velocity = Vector2(-200, -270)
 	
 	var was_on_floor = is_on_floor()
 	
@@ -127,9 +134,6 @@ func _process(_delta: float) -> void:
 		get_tree().change_scene_to_file(\"res://game/world/overworld/test_world/test_scene.tscn\")
 	elif Input.is_action_just_pressed(\"quit\"):
 		get_tree().quit()
-
-func _ready():
-	dash_cooldown.timeout.connect(_on_DashCooldown_timeout)
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h8qux"]
