@@ -44,6 +44,10 @@ func _physics_process(delta: float) -> void:
 		can_jump = false
 		velocity.y = JUMP_VELOCITY
 	
+	if Input.is_action_just_released(\"jump\"):
+		if velocity.y <   0:
+			velocity.y = JUMP_VELOCITY / 4
+	
 	if is_on_wall() && (Input.is_action_just_pressed(\"jump\")):
 		if velocity.x < 0:
 			velocity = Vector2(200, -270)
@@ -202,5 +206,5 @@ wait_time = 0.25
 one_shot = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(8, 8)
+zoom = Vector2(5, 5)
 position_smoothing_enabled = true
