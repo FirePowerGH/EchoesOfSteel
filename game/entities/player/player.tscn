@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=3 uid="uid://sxwxwnqvibvf"]
+[gd_scene load_steps=21 format=3 uid="uid://sxwxwnqvibvf"]
 
+[ext_resource type="Texture2D" uid="uid://bluw2ggxmxby1" path="res://game/entities/player/sprites/CharlieJumpFall.png" id="1_n5v76"]
 [ext_resource type="Texture2D" uid="uid://bcetc4sgh0wom" path="res://game/entities/player/sprites/IdleSprite.png" id="1_pn68t"]
 [ext_resource type="Texture2D" uid="uid://bsn4oprh4bser" path="res://game/entities/player/sprites/spriteSheetWalkStand.png" id="1_r4c8x"]
 
@@ -43,6 +44,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed(\"jump\") && (canJump()):
 		can_jump = false
 		velocity.y = JUMP_VELOCITY
+		
+		sprite.play(\"jump\")
 	
 	if Input.is_action_just_released(\"jump\"):
 		if velocity.y <   0:
@@ -112,16 +115,25 @@ func get_input_direction():
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(\"reset\"):
-		if level == 0:
-			get_tree().change_scene_to_file(\"res://game/world/overworld/test_world/test_scene.tscn\")
-			level = level + 1
-		elif level == 1:
-			get_tree().change_scene_to_file(\"res://game/world/overworld/world1/world1.tscn\")
-			level = 0
+		get_tree().change_scene_to_file(\"res://game/world/overworld/test_world/test_scene.tscn\")
+	elif Input.is_action_just_pressed(\"quit\"):
+		get_tree().quit()
 
 func _ready():
 	dash_cooldown.timeout.connect(_on_DashCooldown_timeout)
 "
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01scy"]
+atlas = ExtResource("1_n5v76")
+region = Rect2(128, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7j0p6"]
+atlas = ExtResource("1_n5v76")
+region = Rect2(0, 128, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nej7m"]
+atlas = ExtResource("1_n5v76")
+region = Rect2(64, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dv0pe"]
 atlas = ExtResource("1_pn68t")
@@ -139,6 +151,26 @@ region = Rect2(0, 64, 64, 64)
 atlas = ExtResource("1_pn68t")
 region = Rect2(64, 64, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8gh7"]
+atlas = ExtResource("1_n5v76")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trgny"]
+atlas = ExtResource("1_n5v76")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ysau"]
+atlas = ExtResource("1_n5v76")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13j8r"]
+atlas = ExtResource("1_n5v76")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oknot"]
+atlas = ExtResource("1_n5v76")
+region = Rect2(64, 64, 64, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_8qcvo"]
 atlas = ExtResource("1_r4c8x")
 region = Rect2(0, 0, 64, 64)
@@ -149,6 +181,20 @@ region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ktmlj"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01scy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7j0p6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nej7m")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_dv0pe")
@@ -165,6 +211,26 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8gh7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trgny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ysau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13j8r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oknot")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -191,10 +257,12 @@ texture_filter = 1
 position = Vector2(-1.19209e-07, -1.19209e-07)
 scale = Vector2(0.42, 0.42)
 sprite_frames = SubResource("SpriteFrames_ktmlj")
-animation = &"idle"
-frame_progress = 0.616392
+animation = &"jump"
+frame = 4
+frame_progress = 0.687013
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("CapsuleShape2D_at7hy")
 
 [node name="CoyoteTime" type="Timer" parent="."]
