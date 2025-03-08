@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://i61by6v28p60" path="res://game/world/overworld/world1/sprites/TileMapWIP.png" id="1_kdvhn"]
 [ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="2_f3nnp"]
-[ext_resource type="PackedScene" uid="uid://ddq0xjf2wbc6w" path="res://game/world/overworld/world1/dungeon_start.tscn" id="3_seb1j"]
+[ext_resource type="PackedScene" uid="uid://8efphje7i6b2" path="res://game/world/overworld/world1/dungeon_start.tscn" id="3_seb1j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ebbtr"]
 texture = ExtResource("1_kdvhn")
