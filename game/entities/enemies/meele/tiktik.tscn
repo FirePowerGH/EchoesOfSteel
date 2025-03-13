@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://nnf8kmff48wc"]
+
+[ext_resource type="Script" path="res://game/entities/enemies/meele/crawlerAI.gd" id="1_2o6fr"]
+[ext_resource type="Texture2D" uid="uid://de65usf80x38q" path="res://icon.svg" id="2_tkl7u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f3qdd"]
+size = Vector2(128, 129)
+
+[node name="Tiktik" type="CharacterBody2D"]
+scale = Vector2(0.16, 0.16)
+collision_layer = 2
+collision_mask = 23
+floor_constant_speed = true
+script = ExtResource("1_2o6fr")
+speed = 50
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_tkl7u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_f3qdd")
+
+[node name="raycast" type="Node2D" parent="."]
+
+[node name="groundQuery" type="RayCast2D" parent="raycast"]
+position = Vector2(68.75, 0)
+scale = Vector2(8, 4)
+collision_mask = 16
