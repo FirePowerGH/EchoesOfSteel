@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://3g5cpr5p6166"]
+
+[ext_resource type="Texture2D" uid="uid://bpygxwwxcirbs" path="res://game/entities/player/sprites/SizeSlashTest.png" id="1_pcgkd"]
+[ext_resource type="Script" path="res://game/entities/player/sword.gd" id="1_sw14c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_golh7"]
+atlas = ExtResource("1_pcgkd")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ukufn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_golh7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jtfkj"]
+size = Vector2(64, 50)
+
+[node name="sword" type="Area2D"]
+collision_layer = 4
+collision_mask = 10
+script = ExtResource("1_sw14c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(20, -20)
+sprite_frames = SubResource("SpriteFrames_ukufn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(19, -22)
+shape = SubResource("RectangleShape2D_jtfkj")
+disabled = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
