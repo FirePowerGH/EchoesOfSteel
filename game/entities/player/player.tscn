@@ -18,6 +18,7 @@ var dash_direction = Vector2.ZERO
 var is_dashing = false
 var can_dash = true
 var can_jump = false
+var turn = false
 
 @onready var sword =$sword
 @onready var sword_col = $sword/CollisionShape2D
@@ -76,11 +77,14 @@ func _physics_process(delta: float) -> void:
 		print(get_local_mouse_position().x)
 		sword_timer.start()
 	
+	animateState()
+	
 	if sword_timer.is_stopped():
 		sword.visible = false
 		sword_col.disabled = true
+	else:
+		sprite.flip_h = turn
 	
-	animateState()
 	move_and_slide()
 	
 	if was_on_floor && !is_on_floor():
@@ -150,10 +154,10 @@ func get_input_direction():
 func changeAttackState() -> void:
 	if get_local_mouse_position().x > 0:
 		sword.scale.x = 0.7
-		sprite.flip_h = false
+		turn = false
 	else:
 		sword.scale.x = -0.7
-		sprite.flip_h = true
+		turn = true
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed(\"reset\"):
