@@ -3,9 +3,11 @@ extends CharacterBody2D
 @onready var groundQuery = $raycast/groundQuery
 @onready var sprite = $Icon
 
-@export var speed: int
+@export var movement_speed: int
+var speed: int
 
 var direction = 1
+var los = false
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -17,8 +19,14 @@ func _physics_process(delta: float) -> void:
 		groundQuery.get_parent().scale.x = groundQuery.get_parent().scale.x * -1
 		sprite.flip_h = sprite.flip_h == false
 	
-	move(direction)
+	if los == true:
+		pass
+	else:
+		sprite.play("default")
+		speed = movement_speed
+	
+	move(direction, speed)
 	move_and_slide()
 
-func move(direction):
+func move(direction, speed):
 	velocity.x = move_toward(velocity.x, direction * speed, 36.0)

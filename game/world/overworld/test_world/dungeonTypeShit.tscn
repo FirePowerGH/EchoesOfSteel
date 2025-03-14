@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://mkl64b7hukgw" path="res://game/world/overworld/test_world/sprites/Block_tilesheet.png" id="1_84ppb"]
 [ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="2_d5jgo"]
 [ext_resource type="PackedScene" uid="uid://b3v4bqm2rnaeq" path="res://common/start_dungeon.tscn" id="3_sl28e"]
-[ext_resource type="PackedScene" uid="uid://nnf8kmff48wc" path="res://game/entities/enemies/meele/tiktik.tscn" id="4_ob3np"]
+[ext_resource type="PackedScene" uid="uid://nnf8kmff48wc" path="res://game/entities/enemies/meele/tiktik/tiktik.tscn" id="4_ob3np"]
 [ext_resource type="PackedScene" uid="uid://riejkoadagrj" path="res://game/entities/enemies/ranged/turret.tscn" id="5_kyjjg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2r1ga"]

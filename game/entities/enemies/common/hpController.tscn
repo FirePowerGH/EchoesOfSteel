@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cl55f517jg7o"]
 
-[ext_resource type="Script" path="res://game/entities/enemies/meele/crawlerAI.gd" id="1_pg5l7"]
+[ext_resource type="Script" path="res://game/entities/enemies/common/enemyHP.gd" id="1_12krl"]
 
 [node name="HpController" type="Node"]
-script = ExtResource("1_pg5l7")
+script = ExtResource("1_12krl")
