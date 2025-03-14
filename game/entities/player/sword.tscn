@@ -1,21 +1,42 @@
-[gd_scene load_steps=6 format=3 uid="uid://3g5cpr5p6166"]
+[gd_scene load_steps=9 format=3 uid="uid://3g5cpr5p6166"]
 
-[ext_resource type="Texture2D" uid="uid://bpygxwwxcirbs" path="res://game/entities/player/sprites/SizeSlashTest.png" id="1_pcgkd"]
 [ext_resource type="Script" path="res://game/entities/player/sword.gd" id="1_sw14c"]
+[ext_resource type="Texture2D" uid="uid://dxhr4sq6e8qwd" path="res://game/entities/player/sprites/LeftRightSlash.png" id="2_0hv2j"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_golh7"]
-atlas = ExtResource("1_pcgkd")
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekmhu"]
+atlas = ExtResource("2_0hv2j")
 region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_ukufn"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0pn0"]
+atlas = ExtResource("2_0hv2j")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ifa74"]
+atlas = ExtResource("2_0hv2j")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_usqi0"]
+atlas = ExtResource("2_0hv2j")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ibvkk"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_golh7")
+"texture": SubResource("AtlasTexture_ekmhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0pn0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ifa74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_usqi0")
 }],
 "loop": true,
-"name": &"default",
-"speed": 5.0
+"name": &"slash",
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jtfkj"]
@@ -28,8 +49,9 @@ script = ExtResource("1_sw14c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(20, -20)
-sprite_frames = SubResource("SpriteFrames_ukufn")
+position = Vector2(14, -16)
+sprite_frames = SubResource("SpriteFrames_ibvkk")
+animation = &"slash"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
