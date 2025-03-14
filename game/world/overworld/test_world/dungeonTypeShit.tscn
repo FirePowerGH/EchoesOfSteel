@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://gf1gje2gm5xy"]
+[gd_scene load_steps=6 format=4 uid="uid://gf1gje2gm5xy"]
 
 [ext_resource type="Texture2D" uid="uid://mkl64b7hukgw" path="res://game/world/overworld/test_world/sprites/Block_tilesheet.png" id="1_84ppb"]
 [ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="2_d5jgo"]
 [ext_resource type="PackedScene" uid="uid://b3v4bqm2rnaeq" path="res://common/start_dungeon.tscn" id="3_sl28e"]
-[ext_resource type="PackedScene" uid="uid://bayegip3o3kkh" path="res://game/entities/enemy_del.tscn" id="4_0deir"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2r1ga"]
 texture = ExtResource("1_84ppb")
@@ -45,7 +44,3 @@ position = Vector2(12, -15)
 
 [node name="startDungeon" parent="." instance=ExtResource("3_sl28e")]
 position = Vector2(677, 163)
-
-[node name="enemyDel" parent="." instance=ExtResource("4_0deir")]
-position = Vector2(273, 0.999999)
-scale = Vector2(0.186617, 0.186617)
