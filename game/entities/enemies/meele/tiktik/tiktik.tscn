@@ -104,7 +104,7 @@ position = Vector2(0, -18.75)
 scale = Vector2(3.45098, 3.33066)
 sprite_frames = SubResource("SpriteFrames_e27ch")
 animation = &"askel"
-frame_progress = 0.592638
+frame_progress = 0.176329
 offset = Vector2(0, -22.2664)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
