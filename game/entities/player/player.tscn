@@ -303,6 +303,7 @@ position = Vector2(0, 8)
 target_position = Vector2(0, 32)
 
 [node name="sword" parent="." instance=ExtResource("4_wbmrc")]
+visible = false
 position = Vector2(4.76837e-07, 11)
 scale = Vector2(0.7, 0.7)
 
