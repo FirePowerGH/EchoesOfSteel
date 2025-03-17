@@ -5,11 +5,6 @@ extends CharacterBody2D
 
 var playerPos
 
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-
 func _process(delta: float) -> void:
 	playerPos = player.global_position
 	eye.look_at(playerPos)
