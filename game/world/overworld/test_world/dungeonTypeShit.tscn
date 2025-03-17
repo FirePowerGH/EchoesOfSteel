@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://banfgoi36d6t7"]
+[gd_scene load_steps=8 format=4 uid="uid://gf1gje2gm5xy"]
 
 [ext_resource type="Texture2D" uid="uid://mkl64b7hukgw" path="res://game/world/overworld/test_world/sprites/Block_tilesheet.png" id="1_84ppb"]
 [ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="2_d5jgo"]
