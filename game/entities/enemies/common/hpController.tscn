@@ -4,3 +4,7 @@
 
 [node name="HpController" type="Node"]
 script = ExtResource("1_12krl")
+
+[node name="invincibilityTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
