@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://riejkoadagrj"]
+[gd_scene load_steps=9 format=3 uid="uid://riejkoadagrj"]
 
+[ext_resource type="Script" path="res://game/entities/enemies/ranged/turret/turretAI.gd" id="1_5ivly"]
 [ext_resource type="Texture2D" uid="uid://bvrjcpcd3ghg2" path="res://game/entities/enemies/ranged/turret/eyeTurret.png" id="1_mkb5o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4myqh"]
@@ -38,14 +39,16 @@ size = Vector2(14, 17)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbe73"]
 size = Vector2(19, 22)
 
-[node name="Turret" type="StaticBody2D"]
-collision_layer = 0
+[node name="Turret" type="CharacterBody2D"]
+collision_layer = 2
 collision_mask = 16
+script = ExtResource("1_5ivly")
 
 [node name="EyePart" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_l263y")
+flip_h = true
 
 [node name="LegParts" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -57,8 +60,10 @@ position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_xipl2")
 
 [node name="hurtbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 4
+collision_priority = 2.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
 position = Vector2(-0.5, 1)
