@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var sprite = $Icon
 
 @export var movement_speed: int
+@export var hp: int
 var speed: int
 
 var direction = 1

@@ -276,7 +276,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i6lwe"]
 size = Vector2(14, 22)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_mask = 26
 floor_constant_speed = true
 script = SubResource("GDScript_hhx74")
@@ -310,9 +310,11 @@ position = Vector2(0, 8)
 target_position = Vector2(0, 32)
 collision_mask = 16
 
-[node name="sword" parent="." instance=ExtResource("4_3ym6u")]
+[node name="sword" parent="." groups=["swords"] instance=ExtResource("4_3ym6u")]
+visible = false
 position = Vector2(0, 12)
 scale = Vector2(0.7, 0.7)
+sword_dmg = 5
 
 [node name="swordTimer" type="Timer" parent="sword"]
 wait_time = 0.25
