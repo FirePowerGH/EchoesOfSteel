@@ -277,7 +277,7 @@ animations = [{
 size = Vector2(14, 22)
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 26
+collision_mask = 24
 floor_constant_speed = true
 script = SubResource("GDScript_hhx74")
 metadata/_edit_group_ = true

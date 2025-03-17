@@ -25,8 +25,8 @@ func _physics_process(delta: float) -> void:
 		sprite.play("default")
 		speed = movement_speed
 	
-	move(direction, speed)
+	move()
 	move_and_slide()
 
-func move(direction, speed):
+func move():
 	velocity.x = move_toward(velocity.x, direction * speed, 36.0)
