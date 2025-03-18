@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://nnf8kmff48wc"]
+[gd_scene load_steps=18 format=3 uid="uid://nnf8kmff48wc"]
 
 [ext_resource type="Script" path="res://game/entities/enemies/meele/crawlerAI.gd" id="1_2o6fr"]
 [ext_resource type="Texture2D" uid="uid://c5a4kcs82nt4c" path="res://game/entities/enemies/meele/tiktik/StillEnemyStandard.png" id="2_avg62"]
@@ -90,10 +90,13 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3qdd"]
 size = Vector2(137.5, 37.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sg637"]
+size = Vector2(156.25, 112.5)
+
 [node name="Tiktik" type="CharacterBody2D"]
 scale = Vector2(0.16, 0.16)
 collision_layer = 2
-collision_mask = 23
+collision_mask = 18
 floor_constant_speed = true
 script = ExtResource("1_2o6fr")
 movement_speed = 50
@@ -119,4 +122,12 @@ position = Vector2(68.75, 0)
 scale = Vector2(8, 4)
 collision_mask = 16
 
-[node name="HpController" parent="." instance=ExtResource("3_yb5oo")]
+[node name="hurtbox" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(-3.125, -50)
+shape = SubResource("RectangleShape2D_sg637")
+
+[node name="HpController" parent="hurtbox" instance=ExtResource("3_yb5oo")]

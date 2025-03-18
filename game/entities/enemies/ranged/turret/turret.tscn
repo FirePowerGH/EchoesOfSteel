@@ -41,7 +41,7 @@ size = Vector2(14, 17)
 size = Vector2(19, 22)
 
 [node name="Turret" type="CharacterBody2D"]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 16
 script = ExtResource("1_5ivly")
 hp = 5
@@ -62,7 +62,6 @@ position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_xipl2")
 
 [node name="hurtbox" type="Area2D" parent="."]
-visible = false
 collision_layer = 2
 collision_mask = 4
 collision_priority = 2.0
@@ -71,4 +70,4 @@ collision_priority = 2.0
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_hbe73")
 
-[node name="HpController" parent="." instance=ExtResource("3_ncsws")]
+[node name="HpController" parent="hurtbox" instance=ExtResource("3_ncsws")]

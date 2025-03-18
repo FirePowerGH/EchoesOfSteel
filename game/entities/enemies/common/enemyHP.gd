@@ -6,12 +6,13 @@ func on_hp_updated(dmg: int) -> void:
 	if !invincibility.is_stopped():
 		return
 	
-	var hp = get_parent().hp
+	var enemyNode = get_parent().get_parent()
+	var hp = enemyNode.hp
 	
 	hp -= dmg
-	get_parent().hp = hp
+	enemyNode.hp = hp
 	
 	invincibility.start()
 	
 	if hp <= 0:
-		get_parent().queue_free()
+		enemyNode.queue_free()
