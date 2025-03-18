@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://nnf8kmff48wc"]
+[gd_scene load_steps=19 format=3 uid="uid://nnf8kmff48wc"]
 
 [ext_resource type="Script" path="res://game/entities/enemies/meele/crawlerAI.gd" id="1_2o6fr"]
 [ext_resource type="Texture2D" uid="uid://c5a4kcs82nt4c" path="res://game/entities/enemies/meele/tiktik/StillEnemyStandard.png" id="2_avg62"]
@@ -90,6 +90,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f3qdd"]
 size = Vector2(137.5, 37.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_517b6"]
+size = Vector2(100, 18.75)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sg637"]
 size = Vector2(156.25, 112.5)
 
@@ -121,6 +124,13 @@ shape = SubResource("RectangleShape2D_f3qdd")
 position = Vector2(68.75, 0)
 scale = Vector2(8, 4)
 collision_mask = 16
+
+[node name="hitbox" type="Area2D" parent="."]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, -18.75)
+shape = SubResource("RectangleShape2D_517b6")
 
 [node name="hurtbox" type="Area2D" parent="."]
 collision_layer = 2
