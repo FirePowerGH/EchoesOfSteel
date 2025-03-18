@@ -10,9 +10,10 @@ func on_hp_updated(dmg: int) -> void:
 	var hp = enemyNode.hp
 	
 	hp -= dmg
-	enemyNode.hp = hp
 	
 	invincibility.start()
 	
 	if hp <= 0:
 		enemyNode.queue_free()
+	
+	enemyNode.hp = hp

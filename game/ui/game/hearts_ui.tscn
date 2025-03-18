@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwbvsgxpv1q2i"]
+
+[ext_resource type="Script" path="res://game/ui/game/hearts_ui.gd" id="1_3x6pd"]
+[ext_resource type="Texture2D" uid="uid://bsp0himtywow7" path="res://game/ui/game/sprites/heartFullTemp.png" id="1_6s2dt"]
+
+[node name="heartsUI" type="CanvasLayer"]
+script = ExtResource("1_3x6pd")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(3.03462, 3.03462)
+
+[node name="heart" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_6s2dt")
+expand_mode = 2
