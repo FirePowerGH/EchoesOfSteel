@@ -1,16 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://b3v4bqm2rnaeq"]
+[gd_scene load_steps=3 format=3 uid="uid://c3ojtog3j5edf"]
 
-[ext_resource type="Script" path="res://common/start_dungeon.gd" id="1_ojw75"]
+[ext_resource type="Script" path="res://common/scripts/start_dungeon.gd" id="1_teir4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xw14l"]
-size = Vector2(1, 5.75)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2afb"]
+size = Vector2(20, 203)
 
 [node name="startDungeon" type="Area2D"]
 collision_layer = 0
-script = ExtResource("1_ojw75")
+script = ExtResource("1_teir4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(20, 20)
-shape = SubResource("RectangleShape2D_xw14l")
+shape = SubResource("RectangleShape2D_f2afb")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

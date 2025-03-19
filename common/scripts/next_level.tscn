@@ -1,16 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://b0n6vej3wxsod"]
+[gd_scene load_steps=3 format=3 uid="uid://dxqvmfwm23gx7"]
 
-[ext_resource type="Script" path="res://common/next_level.gd" id="1_ejmek"]
+[ext_resource type="Script" path="res://next_level.gd" id="1_tjy70"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_hi7rb"]
-size = Vector2(1, 5.75)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnhyn"]
+size = Vector2(20, 203)
 
 [node name="nextLevel" type="Area2D"]
 collision_layer = 0
-script = ExtResource("1_ejmek")
+script = ExtResource("1_tjy70")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(20, 20)
-shape = SubResource("RectangleShape2D_hi7rb")
+shape = SubResource("RectangleShape2D_jnhyn")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

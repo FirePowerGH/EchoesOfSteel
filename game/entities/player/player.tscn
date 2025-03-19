@@ -1,10 +1,11 @@
-[gd_scene load_steps=21 format=3 uid="uid://sxwxwnqvibvf"]
+[gd_scene load_steps=22 format=3 uid="uid://sxwxwnqvibvf"]
 
 [ext_resource type="Texture2D" uid="uid://bluw2ggxmxby1" path="res://game/entities/player/sprites/CharlieJumpFall.png" id="1_n5v76"]
 [ext_resource type="Texture2D" uid="uid://bcetc4sgh0wom" path="res://game/entities/player/sprites/IdleSprite.png" id="1_pn68t"]
 [ext_resource type="Texture2D" uid="uid://bsn4oprh4bser" path="res://game/entities/player/sprites/spriteSheetWalkStand.png" id="1_r4c8x"]
 [ext_resource type="PackedScene" uid="uid://3g5cpr5p6166" path="res://game/entities/player/sword.tscn" id="4_3ym6u"]
 [ext_resource type="Script" path="res://game/entities/player/playerHurtbox.gd" id="5_rpesr"]
+[ext_resource type="PackedScene" uid="uid://boawpakqpb38p" path="res://game/ui/menu/escape/escape.tscn" id="6_xseyl"]
 
 [sub_resource type="GDScript" id="GDScript_hhx74"]
 script/source = "extends CharacterBody2D
@@ -286,7 +287,7 @@ height = 18.0
 collision_mask = 16
 floor_constant_speed = true
 script = SubResource("GDScript_hhx74")
-hp = 5
+hp = 3
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -327,7 +328,6 @@ sword_dmg = 5
 wait_time = 0.25
 one_shot = true
 
-[node name="playerMenu" parent="." instance=ExtResource("5_ac034")]
 [node name="hurtbox" type="Area2D" parent="."]
 collision_mask = 8
 script = ExtResource("5_rpesr")
@@ -335,5 +335,7 @@ script = ExtResource("5_rpesr")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
 position = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_nbvxb")
+
+[node name="playerMenu" parent="." instance=ExtResource("6_xseyl")]
 
 [connection signal="area_entered" from="hurtbox" to="hurtbox" method="_on_area_entered"]
