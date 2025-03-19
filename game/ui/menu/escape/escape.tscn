@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://chc4m8t35y8ju" path="res://game/ui/default_theme.tres" id="2_fr4tb"]
 
 [node name="playerMenu" type="CanvasLayer"]
+process_mode = 3
 visible = false
 script = ExtResource("1_hkaql")
 

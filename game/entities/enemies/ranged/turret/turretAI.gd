@@ -10,7 +10,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	playerPos = player.global_position
 	eye.look_at(playerPos)
 	# eye.rotate_toward(eye.global_rotation, playerPos, 36.0)

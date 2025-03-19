@@ -162,13 +162,6 @@ func changeAttackState() -> void:
 	else:
 		sword.scale.x = -0.7
 		turn = true
-
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed(\"menu\"):
-		if menu.visible:
-			menu.hide()
-		else:
-			menu.show()
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h8qux"]
