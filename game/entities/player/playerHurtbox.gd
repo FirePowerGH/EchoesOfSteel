@@ -4,6 +4,7 @@ func _on_area_entered(_area: Area2D) -> void:
 	var hp = get_parent().hp
 	
 	hp -= 1
+	heartsUi.updateHearts(-1)
 	
 	print("New hp %s" % [str(hp)])
 	if hp <= 0:

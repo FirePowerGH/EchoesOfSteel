@@ -1,7 +1,58 @@
-[gd_scene load_steps=3 format=3 uid="uid://dwbvsgxpv1q2i"]
+[gd_scene load_steps=12 format=3 uid="uid://dwbvsgxpv1q2i"]
 
 [ext_resource type="Script" path="res://game/ui/game/hearts_ui.gd" id="1_3x6pd"]
-[ext_resource type="Texture2D" uid="uid://bsp0himtywow7" path="res://game/ui/game/sprites/heartFullTemp.png" id="1_6s2dt"]
+[ext_resource type="Texture2D" uid="uid://cq0kl1ffn6f47" path="res://game/ui/game/sprites/heartAlive.png" id="2_emtug"]
+[ext_resource type="Texture2D" uid="uid://do54efppmr2pa" path="res://game/ui/game/sprites/HeartsDeadAlive.png" id="2_oi4jf"]
+[ext_resource type="Texture2D" uid="uid://d0aeaudmobpto" path="res://game/ui/game/sprites/heartAlive2.png" id="3_65ij3"]
+[ext_resource type="Script" path="res://game/ui/game/button.gd" id="5_5j4ft"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_inwtt"]
+atlas = ExtResource("2_oi4jf")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sw8jn"]
+atlas = ExtResource("2_oi4jf")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hd78x"]
+atlas = ExtResource("2_oi4jf")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3jcfy"]
+atlas = ExtResource("2_oi4jf")
+region = Rect2(64, 64, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7revt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_inwtt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sw8jn")
+}],
+"loop": true,
+"name": &"alive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hd78x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3jcfy")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 5.0
+}]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_mr27a"]
+frames = 2
+frame_0/texture = ExtResource("2_emtug")
+frame_0/duration = 0.33
+frame_1/texture = ExtResource("3_65ij3")
+frame_1/duration = 0.33
 
 [node name="heartsUI" type="CanvasLayer"]
 script = ExtResource("1_3x6pd")
@@ -11,7 +62,24 @@ offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(3.03462, 3.03462)
 
-[node name="heart" type="TextureRect" parent="HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("1_6s2dt")
+[node name="heart" type="AnimatedSprite2D" parent="HBoxContainer"]
+texture_filter = 1
+position = Vector2(32.294, 31.9645)
+sprite_frames = SubResource("SpriteFrames_7revt")
+animation = &"alive"
+
+[node name="heart" type="TextureRect" parent="."]
+visible = false
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AnimatedTexture_mr27a")
 expand_mode = 2
+
+[node name="Button" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "heal"
+script = ExtResource("5_5j4ft")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
