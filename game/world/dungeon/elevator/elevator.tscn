@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cm0mknmcddbpe"]
+[gd_scene load_steps=9 format=3 uid="uid://cm0mknmcddbpe"]
 
 [ext_resource type="Texture2D" uid="uid://7g0fpioyogyt" path="res://game/world/dungeon/elevator/background/gradient.png" id="1_e7m2t"]
 [ext_resource type="Texture2D" uid="uid://cgv24csv6ii7p" path="res://game/world/dungeon/elevator/background/pipes.png" id="2_w76o0"]
 [ext_resource type="Texture2D" uid="uid://b646ybs2qxs4j" path="res://game/world/dungeon/elevator/background/grand.png" id="3_e045m"]
 [ext_resource type="Texture2D" uid="uid://c74h474g8owpu" path="res://game/world/dungeon/elevator/elevator/elevator.png" id="4_syrt4"]
 [ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="4_voaxs"]
+[ext_resource type="PackedScene" uid="uid://c3ojtog3j5edf" path="res://common/scripts/start_dungeon.tscn" id="6_i6c23"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qo7ga"]
 size = Vector2(97, 91)
@@ -55,3 +56,6 @@ shape = SubResource("RectangleShape2D_k1x4l")
 [node name="Player" parent="." instance=ExtResource("4_voaxs")]
 z_index = 4
 position = Vector2(57, 201)
+
+[node name="startDungeon" parent="." instance=ExtResource("6_i6c23")]
+position = Vector2(16, 98)
