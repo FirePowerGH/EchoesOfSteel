@@ -22,13 +22,21 @@ size_flags_vertical = 4
 theme = ExtResource("2_fr4tb")
 theme_override_constants/separation = 10
 
-[node name="resume" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 6
+text = "Paused
+"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="Resume" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
 text = "Resume"
 
-[node name="exit" type="Button" parent="CenterContainer/VBoxContainer"]
+[node name="Exit" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Exit"
+text = "Exit to Menu"
 
-[connection signal="pressed" from="CenterContainer/VBoxContainer/resume" to="." method="_on_resume_pressed"]
-[connection signal="pressed" from="CenterContainer/VBoxContainer/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
