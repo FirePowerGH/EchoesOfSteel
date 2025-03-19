@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://cm0mknmcddbpe"]
+
+[ext_resource type="Texture2D" uid="uid://7g0fpioyogyt" path="res://game/world/dungeon/elevator/background/gradient.png" id="1_e7m2t"]
+[ext_resource type="Texture2D" uid="uid://cgv24csv6ii7p" path="res://game/world/dungeon/elevator/background/pipes.png" id="2_w76o0"]
+[ext_resource type="Texture2D" uid="uid://b646ybs2qxs4j" path="res://game/world/dungeon/elevator/background/grand.png" id="3_e045m"]
+[ext_resource type="Texture2D" uid="uid://c74h474g8owpu" path="res://game/world/dungeon/elevator/elevator/elevator.png" id="4_syrt4"]
+[ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="4_voaxs"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qo7ga"]
+size = Vector2(97, 91)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1x4l"]
+size = Vector2(286, 6.5)
+
+[node name="Elevator" type="Node2D"]
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="Gradient" type="Sprite2D" parent="background"]
+z_index = 1
+position = Vector2(240, 560)
+texture = ExtResource("1_e7m2t")
+
+[node name="Pipes" type="Sprite2D" parent="background"]
+z_index = 6
+position = Vector2(240, 560)
+texture = ExtResource("2_w76o0")
+
+[node name="Grand" type="Sprite2D" parent="background"]
+z_index = 2
+position = Vector2(240, 1820)
+texture = ExtResource("3_e045m")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="background"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background/StaticBody2D"]
+position = Vector2(48.5, 263.5)
+shape = SubResource("RectangleShape2D_qo7ga")
+
+[node name="elevator" type="Node2D" parent="."]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="elevator"]
+
+[node name="Elevator" type="Sprite2D" parent="elevator/RigidBody2D"]
+z_index = 5
+position = Vector2(249, -839)
+texture = ExtResource("4_syrt4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="elevator/RigidBody2D"]
+position = Vector2(247, 222.75)
+shape = SubResource("RectangleShape2D_k1x4l")
+
+[node name="Player" parent="." instance=ExtResource("4_voaxs")]
+z_index = 4
+position = Vector2(57, 201)
