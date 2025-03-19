@@ -291,7 +291,7 @@ height = 18.0
 collision_mask = 16
 floor_constant_speed = true
 script = SubResource("GDScript_hhx74")
-hp = 5
+hp = 3
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

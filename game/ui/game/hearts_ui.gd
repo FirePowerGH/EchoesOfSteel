@@ -10,14 +10,15 @@ func inithearts(hearts: int) -> void:
 	maxHearts = hearts
 	hp = hearts
 	
-	heart.play("alive")
-	
-	for i in (hearts - 1):
+	for i in (hearts):
 		var newHeart = heart.duplicate()
+		newHeart.visible = true
 		container.add_child(newHeart)
-		newHeart.position.x = container.get_child_count() * 40
+		newHeart.position.x = (container.get_child_count() -1) * 35
 		
 		newHeart.play("alive")
+	
+	heart.queue_free()
 
 # Hearts er enten 1 eller -1, depending on du skal fjerne eller adde hjerter
 # Adder bare support for å miste ett hjerte om gangen, kan endre på dette senere if needed
@@ -26,9 +27,10 @@ func updateHearts(hearts: int) -> void:
 		return
 	
 	if hearts > 0:
-		pass # kan adde support for healing
+		pass # kan adde support for healing later
 	else:
 		hp -= 1
+		print(hp)
 		var heartTexture = container.get_child(hp)
 		
 		heartTexture.play("broken")
