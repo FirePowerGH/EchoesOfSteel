@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://sxwxwnqvibvf"]
+[gd_scene load_steps=25 format=3 uid="uid://sxwxwnqvibvf"]
 
 [ext_resource type="Texture2D" uid="uid://bluw2ggxmxby1" path="res://game/entities/player/sprites/CharlieJumpFall.png" id="1_n5v76"]
 [ext_resource type="Texture2D" uid="uid://bcetc4sgh0wom" path="res://game/entities/player/sprites/IdleSprite.png" id="1_pn68t"]
+[ext_resource type="Texture2D" uid="uid://gmlsl4nxb8hv" path="res://game/entities/player/sprites/Dash.png" id="1_qs7ix"]
 [ext_resource type="Texture2D" uid="uid://bsn4oprh4bser" path="res://game/entities/player/sprites/spriteSheetWalkStand.png" id="1_r4c8x"]
 [ext_resource type="PackedScene" uid="uid://3g5cpr5p6166" path="res://game/entities/player/sword.tscn" id="4_3ym6u"]
 [ext_resource type="Script" path="res://game/entities/player/playerHurtbox.gd" id="5_rpesr"]
@@ -130,6 +131,8 @@ func handle_movement(direction):
 func animateState():
 	if velocity == Vector2.ZERO:
 		sprite.play(\"idle\")
+	elif is_dashing:
+		sprite.play(\"dash\")
 	elif velocity.y > 0:
 		if ray_to_ground.is_colliding():
 			sprite.play(\"fallFin\")
@@ -170,6 +173,14 @@ func changeAttackState() -> void:
 		sword.scale.x = -0.7
 		turn = true
 "
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8v8hg"]
+atlas = ExtResource("1_qs7ix")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qt003"]
+atlas = ExtResource("1_qs7ix")
+region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h8qux"]
 atlas = ExtResource("1_n5v76")
@@ -217,6 +228,26 @@ region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ktmlj"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8v8hg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt003")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt003")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt003")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qt003")
+}],
+"loop": false,
+"name": &"dash",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_h8qux")
@@ -295,7 +326,9 @@ texture_filter = 1
 position = Vector2(-1.19209e-07, -1.19209e-07)
 scale = Vector2(0.42, 0.42)
 sprite_frames = SubResource("SpriteFrames_ktmlj")
-animation = &"fallFin"
+animation = &"dash"
+frame = 4
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
