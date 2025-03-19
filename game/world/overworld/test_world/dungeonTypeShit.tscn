@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://gf1gje2gm5xy"]
+[gd_scene load_steps=8 format=4 uid="uid://gf1gje2gm5xy"]
 
 [ext_resource type="Texture2D" uid="uid://mkl64b7hukgw" path="res://game/world/overworld/test_world/sprites/Block_tilesheet.png" id="1_84ppb"]
 [ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="2_d5jgo"]
 [ext_resource type="PackedScene" uid="uid://b3v4bqm2rnaeq" path="res://common/start_dungeon.tscn" id="3_sl28e"]
 [ext_resource type="PackedScene" uid="uid://nnf8kmff48wc" path="res://game/entities/enemies/meele/tiktik/tiktik.tscn" id="4_ob3np"]
 [ext_resource type="PackedScene" uid="uid://riejkoadagrj" path="res://game/entities/enemies/ranged/turret/turret.tscn" id="5_kyjjg"]
-[ext_resource type="Texture2D" uid="uid://bsp0himtywow7" path="res://game/ui/game/sprites/heartFullTemp.png" id="6_8hspd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2r1ga"]
 texture = ExtResource("1_84ppb")
@@ -56,13 +55,3 @@ position = Vector2(-161, 36)
 
 [node name="Tiktik2" parent="." instance=ExtResource("4_ob3np")]
 position = Vector2(611, 204)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-offset_left = 236.0
-offset_top = 59.0
-offset_right = 276.0
-offset_bottom = 99.0
-texture = ExtResource("6_8hspd")
-expand_mode = 2

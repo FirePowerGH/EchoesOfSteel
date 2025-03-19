@@ -8,4 +8,5 @@ var maxHearts
 func inithearts(hearts: int) -> void:
 	maxHearts = hearts
 	
-	add_child(heart.duplicate())
+	for i in (hearts - 1):
+		container.add_child(heart.duplicate())
