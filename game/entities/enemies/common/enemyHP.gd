@@ -1,7 +1,19 @@
 extends Node
 
-@export var hp: int
+@onready var invincibility = $invincibilityTimer
 
-func _process(delta: float) -> void:
+func on_hp_updated(dmg: int) -> void:
+	if !invincibility.is_stopped():
+		return
+	
+	var enemyNode = get_parent().get_parent()
+	var hp = enemyNode.hp
+	
+	hp -= dmg
+	
+	invincibility.start()
+	
 	if hp <= 0:
-		get_parent().queue_free()
+		enemyNode.queue_free()
+	
+	enemyNode.hp = hp

@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://5pl67gxn3k5m"]
+[gd_scene load_steps=7 format=4 uid="uid://5pl67gxn3k5m"]
 
+[ext_resource type="Script" path="res://game/world/overworld/world1/initHearts.gd" id="1_ab6y0"]
 [ext_resource type="Texture2D" uid="uid://i61by6v28p60" path="res://game/world/overworld/world1/sprites/TileMapWIP.png" id="1_kdvhn"]
 [ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="2_f3nnp"]
 [ext_resource type="PackedScene" uid="uid://8efphje7i6b2" path="res://game/world/overworld/world1/dungeon_start.tscn" id="3_seb1j"]
@@ -65,6 +66,7 @@ physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_ebbtr")
 
 [node name="World1" type="Node2D"]
+script = ExtResource("1_ab6y0")
 
 [node name="dungeonStart" parent="." instance=ExtResource("3_seb1j")]
 position = Vector2(557, 499)

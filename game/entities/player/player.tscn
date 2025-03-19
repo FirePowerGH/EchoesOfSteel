@@ -1,10 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://sxwxwnqvibvf"]
+[gd_scene load_steps=21 format=3 uid="uid://sxwxwnqvibvf"]
 
 [ext_resource type="Texture2D" uid="uid://bluw2ggxmxby1" path="res://game/entities/player/sprites/CharlieJumpFall.png" id="1_n5v76"]
 [ext_resource type="Texture2D" uid="uid://bcetc4sgh0wom" path="res://game/entities/player/sprites/IdleSprite.png" id="1_pn68t"]
 [ext_resource type="Texture2D" uid="uid://bsn4oprh4bser" path="res://game/entities/player/sprites/spriteSheetWalkStand.png" id="1_r4c8x"]
-[ext_resource type="PackedScene" path="res://game/entities/player/sword.tscn" id="4_3ym6u"]
-[ext_resource type="PackedScene" uid="uid://boawpakqpb38p" path="res://game/ui/menu/escape/escape.tscn" id="5_ac034"]
+[ext_resource type="PackedScene" uid="uid://3g5cpr5p6166" path="res://game/entities/player/sword.tscn" id="4_3ym6u"]
+[ext_resource type="Script" path="res://game/entities/player/playerHurtbox.gd" id="5_rpesr"]
 
 [sub_resource type="GDScript" id="GDScript_hhx74"]
 script/source = "extends CharacterBody2D
@@ -21,7 +21,7 @@ var can_dash = true
 var can_jump = false
 var turn = false
 
-@onready var sword =$sword
+@onready var sword = $sword
 @onready var sword_col = $sword/CollisionShape2D
 @onready var sword_timer = $sword/swordTimer
 @onready var coyote_time = $CoyoteTime
@@ -30,8 +30,14 @@ var turn = false
 @onready var ray_to_ground = $DistanceToGround
 @onready var menu = $playerMenu
 
+@export var hp: int
+var initHearts = false
+
+var num = 0
+
 func _ready():
 	dash_cooldown.timeout.connect(_on_DashCooldown_timeout)
+	#heartsUi.inithearts(hp)
 
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
@@ -272,10 +278,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i6lwe"]
 size = Vector2(14, 22)
 
-[node name="Player" type="CharacterBody2D"]
-collision_mask = 24
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nbvxb"]
+radius = 5.0
+height = 18.0
+
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_mask = 16
 floor_constant_speed = true
 script = SubResource("GDScript_hhx74")
+hp = 5
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -306,12 +317,23 @@ position = Vector2(0, 8)
 target_position = Vector2(0, 32)
 collision_mask = 16
 
-[node name="sword" parent="." instance=ExtResource("4_3ym6u")]
+[node name="sword" parent="." groups=["swords"] instance=ExtResource("4_3ym6u")]
+visible = false
 position = Vector2(0, 12)
 scale = Vector2(0.7, 0.7)
+sword_dmg = 5
 
 [node name="swordTimer" type="Timer" parent="sword"]
 wait_time = 0.25
 one_shot = true
 
 [node name="playerMenu" parent="." instance=ExtResource("5_ac034")]
+[node name="hurtbox" type="Area2D" parent="."]
+collision_mask = 8
+script = ExtResource("5_rpesr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_nbvxb")
+
+[connection signal="area_entered" from="hurtbox" to="hurtbox" method="_on_area_entered"]

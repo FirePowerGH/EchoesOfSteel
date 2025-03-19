@@ -3,6 +3,8 @@ extends CharacterBody2D
 @onready var eye = $EyePart
 @onready var player = $"../Player"
 
+@export var hp: int
+
 var playerPos
 
 func _physics_process(delta: float) -> void:
