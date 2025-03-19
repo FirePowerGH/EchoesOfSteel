@@ -28,6 +28,7 @@ var turn = false
 @onready var dash_cooldown = $DashCooldown
 @onready var sprite = $AnimatedSprite2D
 @onready var ray_to_ground = $DistanceToGround
+@onready var menu = $playerMenu
 
 @export var hp: int
 var initHearts = false
@@ -167,12 +168,6 @@ func changeAttackState() -> void:
 	else:
 		sword.scale.x = -0.7
 		turn = true
-
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed(\"reset\"):
-		get_tree().change_scene_to_file(\"res://game/world/overworld/world1/world1.tscn\")
-	elif Input.is_action_just_pressed(\"quit\"):
-		get_tree().quit()
 "
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_h8qux"]
@@ -332,6 +327,7 @@ sword_dmg = 5
 wait_time = 0.25
 one_shot = true
 
+[node name="playerMenu" parent="." instance=ExtResource("5_ac034")]
 [node name="hurtbox" type="Area2D" parent="."]
 collision_mask = 8
 script = ExtResource("5_rpesr")
