@@ -8,8 +8,12 @@
 [ext_resource type="Texture2D" uid="uid://c74h474g8owpu" path="res://game/world/dungeon/elevator/elevator/elevator.png" id="4_syrt4"]
 [ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="4_voaxs"]
 [ext_resource type="Texture2D" uid="uid://cj3rnurxgdnlc" path="res://game/world/dungeon/elevator/elevator/heis_back.png" id="5_ap7s5"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://c1wp1vwgep7ri" path="res://game/world/dungeon/elevator/background/tunnel.png" id="5_frqsv"]
 [ext_resource type="PackedScene" uid="uid://b3v4bqm2rnaeq" path="res://common/scripts/start_dungeon.tscn" id="6_i6c23"]
+=======
+[ext_resource type="PackedScene" uid="uid://c3ojtog3j5edf" path="res://common/scripts/start_dungeon.tscn" id="6_i6c23"]
+>>>>>>> Stashed changes
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gr5jq"]
 size = Vector2(90, 1120)

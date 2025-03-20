@@ -1,11 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://b1thc8uk4scm2"]
+[gd_scene load_steps=5 format=4 uid="uid://2ybbc0tkckkx"]
 
-[ext_resource type="Texture2D" uid="uid://cduu6tkeg0o71" path="res://game/world/dungeon/rooms/sprites/backgrounds/startLevelBack.png" id="1_s7jga"]
-[ext_resource type="Texture2D" uid="uid://ntmn05vkplxj" path="res://game/world/dungeon/rooms/sprites/tileSet.png" id="2_xccr0"]
-[ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="3_qqjj1"]
+[ext_resource type="Texture2D" uid="uid://jlhry8l5cpyx" path="res://game/world/dungeon/rooms/sprites/backgrounds/room1Back.png" id="1_8uqn2"]
+[ext_resource type="Texture2D" uid="uid://ntmn05vkplxj" path="res://game/world/dungeon/rooms/sprites/tileSet.png" id="2_wt4q1"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_unota"]
-texture = ExtResource("2_xccr0")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2xn4g"]
+texture = ExtResource("2_wt4q1")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -106,21 +105,18 @@ texture = ExtResource("2_xccr0")
 8:15/0 = 0
 9:15/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_w5suf"]
+[sub_resource type="TileSet" id="TileSet_4qdvs"]
 physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 0
-sources/1 = SubResource("TileSetAtlasSource_unota")
+sources/1 = SubResource("TileSetAtlasSource_2xn4g")
 
-[node name="startLevel" type="Node2D"]
+[node name="room1" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(199, 112)
-scale = Vector2(0.464829, 0.464829)
-texture = ExtResource("1_s7jga")
+position = Vector2(200, 117)
+scale = Vector2(0.466059, 0.466059)
+texture = ExtResource("1_8uqn2")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAHAAoAAQAFAAQAAAAIAAoAAQAFAAQAAAAJAAoAAQAFAAQAAAAKAAoAAQAFAAQAAAALAAoAAQAFAAQAAAAMAAoAAQAFAAQAAAANAAoAAQAFAAQAAAAAAAoAAQAFAAQAAAABAAoAAQAFAAQAAAACAAoAAQAFAAQAAAADAAoAAQAFAAQAAAAEAAoAAQAFAAQAAAAFAAoAAQAFAAQAAAAGAAoAAQAFAAQAAAAOAAoAAQAFAAQAAAAPAAoAAQAFAAQAAAAQAAoAAQAFAAQAAAARAAoAAQAFAAQAAAASAAoAAQAFAAQAAAATAAoAAQAFAAQAAAAUAAoAAQAFAAQAAAAVAAoAAQAFAAQAAAAWAAoAAQAFAAQAAAAXAAoAAQAFAAQAAAAYAAoAAQAFAAQAAAA=")
-tile_set = SubResource("TileSet_w5suf")
-
-[node name="Player" parent="." instance=ExtResource("3_qqjj1")]
-position = Vector2(20, 147)
+tile_set = SubResource("TileSet_4qdvs")
