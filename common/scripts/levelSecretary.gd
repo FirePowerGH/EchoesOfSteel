@@ -1,6 +1,7 @@
 extends Node
 
 var finishedLevels = []
+var backItUp = false
 
 func updateList(newLevel: String) -> void:
 	if newLevel in finishedLevels:

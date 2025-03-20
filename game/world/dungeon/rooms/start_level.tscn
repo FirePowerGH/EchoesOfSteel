@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=4 uid="uid://b1thc8uk4scm2"]
+[gd_scene load_steps=10 format=4 uid="uid://b1thc8uk4scm2"]
 
+[ext_resource type="Script" path="res://game/world/dungeon/rooms/start_level.gd" id="1_b6lqn"]
 [ext_resource type="Texture2D" uid="uid://cduu6tkeg0o71" path="res://game/world/dungeon/rooms/sprites/backgrounds/startLevelBack.png" id="1_s7jga"]
 [ext_resource type="Texture2D" uid="uid://ntmn05vkplxj" path="res://game/world/dungeon/rooms/sprites/tileSet.png" id="2_xccr0"]
 [ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="3_qqjj1"]
@@ -114,6 +115,7 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_yiqy8")
 
 [node name="startLevel" type="Node2D"]
+script = ExtResource("1_b6lqn")
 
 [node name="World" type="Node2D" parent="."]
 

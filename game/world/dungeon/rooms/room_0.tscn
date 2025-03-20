@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://crkukdexeifue"]
+[gd_scene load_steps=9 format=4 uid="uid://crkukdexeifue"]
 
 [ext_resource type="Texture2D" uid="uid://b2epd5kklut68" path="res://game/world/dungeon/rooms/sprites/backgrounds/room0Back.png" id="1_166th"]
 [ext_resource type="Script" path="res://game/world/dungeon/rooms/rememberLevel.gd" id="1_me311"]
@@ -127,7 +127,7 @@ tile_map_data = PackedByteArray("AAAHAAoAAQAFAAQAAAAIAAoAAQAFAAQAAAAJAAoAAQAFAAQ
 tile_set = SubResource("TileSet_4qdvs")
 
 [node name="Player" parent="." instance=ExtResource("4_d0qga")]
-position = Vector2(190, 147)
+position = Vector2(39, 146)
 
 [node name="nextLevel" parent="." instance=ExtResource("5_bha0b")]
 position = Vector2(391, 97)
