@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://comljrqoyrxet"]
+[gd_scene load_steps=9 format=4 uid="uid://b1thc8uk4scm2"]
 
 [ext_resource type="Texture2D" uid="uid://cduu6tkeg0o71" path="res://game/world/dungeon/rooms/sprites/backgrounds/startLevelBack.png" id="1_s7jga"]
 [ext_resource type="Texture2D" uid="uid://ntmn05vkplxj" path="res://game/world/dungeon/rooms/sprites/tileSet.png" id="2_xccr0"]
@@ -59,7 +59,9 @@ texture_region_size = Vector2i(32, 32)
 5:0/0 = 0
 5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 6:0/0 = 0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, -3.75, -8, -16, 1.5)
 7:0/0 = 0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:1/0 = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, 16, -16, 16)
 1:1/0 = 0
@@ -93,10 +95,13 @@ texture_region_size = Vector2i(32, 32)
 3:7/0 = 0
 4:7/0 = 0
 8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 8:1/0 = 0
 7:1/0 = 0
 8:2/0 = 0
+8:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 7:2/0 = 0
+7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 6:2/0 = 0
 5:2/0 = 0
 4:2/0 = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cl4ptpl2bh1p3"]
+[gd_scene load_steps=11 format=4 uid="uid://d1by27t2vxpa0"]
 
 [ext_resource type="Script" path="res://game/world/dungeon/rooms/rememberLevel.gd" id="1_fr661"]
 [ext_resource type="Texture2D" uid="uid://ypbgif2hulk3" path="res://game/world/dungeon/rooms/sprites/backgrounds/room2Back.png" id="1_p734y"]
@@ -144,4 +144,4 @@ position = Vector2(13, 177)
 position = Vector2(389, 92)
 
 [node name="backLevel" parent="." instance=ExtResource("6_qwi3d")]
-position = Vector2(10, 86)
+position = Vector2(-10, 91)

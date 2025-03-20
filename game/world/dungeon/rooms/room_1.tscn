@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://c8ghgts0ufn21"]
+[gd_scene load_steps=9 format=4 uid="uid://cpm4btbwr8ui7"]
 
 [ext_resource type="Texture2D" uid="uid://jlhry8l5cpyx" path="res://game/world/dungeon/rooms/sprites/backgrounds/room1Back.png" id="1_8uqn2"]
 [ext_resource type="Script" path="res://game/world/dungeon/rooms/rememberLevel.gd" id="1_ifdhc"]
