@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 sword="*res://game/entities/player/sword.gd"
 StartGame="*res://game/ui/menu/main_menu/scripts/button.gd"
 heartsUi="*res://game/ui/game/hearts_ui.tscn"
+levelSecretary="*res://common/scripts/levelSecretary.gd"
 
 [display]
 

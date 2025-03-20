@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="2_d5jgo"]
 [ext_resource type="PackedScene" uid="uid://nnf8kmff48wc" path="res://game/entities/enemies/meele/tiktik/tiktik.tscn" id="4_ob3np"]
 [ext_resource type="PackedScene" uid="uid://riejkoadagrj" path="res://game/entities/enemies/ranged/turret/turret.tscn" id="5_kyjjg"]
-[ext_resource type="PackedScene" uid="uid://b3v4bqm2rnaeq" path="res://common/scripts/start_dungeon.tscn" id="6_4vtey"]
+[ext_resource type="PackedScene" uid="uid://c3ojtog3j5edf" path="res://common/scripts/start_dungeon.tscn" id="6_4vtey"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2r1ga"]
 texture = ExtResource("1_84ppb")

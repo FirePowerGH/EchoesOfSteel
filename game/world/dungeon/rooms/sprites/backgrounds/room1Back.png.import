@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bsh0bxta38vb4"
-path="res://.godot/imported/oldTileSet.png-d71d41f296258c9f2757897688096611.ctex"
+uid="uid://jlhry8l5cpyx"
+path="res://.godot/imported/room1Back.png-79e30a6a1afb8e9829f540ea981cbab0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/world/dungeon/rooms/sprites/oldTileSet.png"
-dest_files=["res://.godot/imported/oldTileSet.png-d71d41f296258c9f2757897688096611.ctex"]
+source_file="res://game/world/dungeon/rooms/sprites/backgrounds/room1Back.png"
+dest_files=["res://.godot/imported/room1Back.png-79e30a6a1afb8e9829f540ea981cbab0.ctex"]
 
 [params]
 
