@@ -77,3 +77,4 @@ menu={
 2d_physics/layer_3="projectilePlayer"
 2d_physics/layer_4="projectileEnemy"
 2d_physics/layer_5="solid"
+2d_physics/layer_6="objects"

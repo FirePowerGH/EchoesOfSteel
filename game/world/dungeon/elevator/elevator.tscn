@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cm0mknmcddbpe"]
+[gd_scene load_steps=17 format=3 uid="uid://cm0mknmcddbpe"]
 
 [ext_resource type="Texture2D" uid="uid://7g0fpioyogyt" path="res://game/world/dungeon/elevator/background/gradient.png" id="1_e7m2t"]
 [ext_resource type="Texture2D" uid="uid://cgv24csv6ii7p" path="res://game/world/dungeon/elevator/background/pipes.png" id="2_w76o0"]
@@ -23,6 +23,12 @@ size = Vector2(286, 6.6)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lakpd"]
 size = Vector2(264, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aooy4"]
+size = Vector2(130.219, 8.49193)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nks8v"]
+distance = -2379.39
+
 [node name="Elevator" type="Node2D"]
 texture_filter = 1
 scale = Vector2(0.800205, 0.800205)
@@ -33,26 +39,31 @@ scale = Vector2(0.800205, 0.800205)
 z_index = 1
 position = Vector2(240, 560)
 texture = ExtResource("1_e7m2t")
+metadata/_edit_lock_ = true
 
 [node name="Pipes" type="Sprite2D" parent="background"]
 z_index = 6
 position = Vector2(240, 560)
 texture = ExtResource("2_w76o0")
+metadata/_edit_lock_ = true
 
 [node name="Grand" type="Sprite2D" parent="background"]
 z_index = 2
 position = Vector2(240, 1820)
 texture = ExtResource("3_e045m")
+metadata/_edit_lock_ = true
 
 [node name="Steiner" type="Sprite2D" parent="background"]
 z_index = 3
 position = Vector2(239, 2232.5)
 texture = ExtResource("4_74wmn")
+metadata/_edit_lock_ = true
 
 [node name="Tunnel" type="Sprite2D" parent="background"]
 z_index = 3
 position = Vector2(729, 2270)
 texture = ExtResource("5_frqsv")
+metadata/_edit_lock_ = true
 
 [node name="Collision" type="Node2D" parent="background"]
 visible = false
@@ -61,6 +72,7 @@ z_index = 10
 [node name="FloorWallLeft" type="StaticBody2D" parent="background/Collision"]
 collision_layer = 16
 collision_mask = 0
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background/Collision/FloorWallLeft"]
 position = Vector2(435, 560)
@@ -69,16 +81,33 @@ shape = SubResource("RectangleShape2D_gr5jq")
 [node name="FloorWallRight" type="StaticBody2D" parent="background/Collision"]
 collision_layer = 16
 collision_mask = 0
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background/Collision/FloorWallRight"]
 position = Vector2(48.7, 669)
 shape = SubResource("RectangleShape2D_2voto")
 
+[node name="Tunnel" type="StaticBody2D" parent="background/Collision"]
+collision_layer = 16
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="background/Collision/Tunnel"]
+polygon = PackedVector2Array(432.167, 2372.87, 404.883, 2492.9, 404.849, 2519.57, 978.861, 2519.88, 979.785, 2374.06, 979.868, 2263.79, 979.055, 2232.9, 978.303, 2021.78, 482.547, 1909.34, 456.539, 2038.45, 461.003, 2051.35, 445.629, 2117.31, 462.491, 2176.32, 467.857, 2231.13, 467.806, 2264.87, 978.714, 2263.16, 979.038, 2374.15)
+
+[node name="Rock" type="StaticBody2D" parent="background/Collision"]
+collision_layer = 16
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="background/Collision/Rock"]
+polygon = PackedVector2Array(-2.2401, 2045.65, 14.4411, 2089.86, 16.9433, 2127.39, 10.6878, 2149.91, 11.1049, 2178.27, 20.6197, 2246.92, 62.484, 2294.41, 70.6069, 2361.89, 111.221, 2450, 133.716, 2518.1, 0, 2518.73)
+
 [node name="elevator" type="Node2D" parent="."]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="elevator"]
 collision_layer = 16
-collision_mask = 0
+collision_mask = 32
 lock_rotation = true
 freeze = true
 freeze_mode = 1
@@ -94,13 +123,34 @@ z_index = 3
 position = Vector2(241.5, 158.5)
 texture = ExtResource("5_ap7s5")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="elevator/RigidBody2D"]
+[node name="Bottom" type="CollisionShape2D" parent="elevator/RigidBody2D"]
 position = Vector2(241.5, 221.25)
 shape = SubResource("RectangleShape2D_k1x4l")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="elevator/RigidBody2D"]
+[node name="Top" type="CollisionShape2D" parent="elevator/RigidBody2D"]
 position = Vector2(242.5, 88.5)
 shape = SubResource("RectangleShape2D_lakpd")
+
+[node name="detector" type="Area2D" parent="elevator/RigidBody2D"]
+z_index = 10
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="elevator/RigidBody2D/detector"]
+position = Vector2(242.429, 218.123)
+shape = SubResource("RectangleShape2D_aooy4")
+
+[node name="elevatorStarter" type="Timer" parent="elevator"]
+wait_time = 2.0
+one_shot = true
+
+[node name="stopperBottom" type="StaticBody2D" parent="elevator"]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="elevator/stopperBottom"]
+z_index = 10
+shape = SubResource("WorldBoundaryShape2D_nks8v")
 
 [node name="Player" parent="." instance=ExtResource("4_voaxs")]
 z_index = 4
@@ -110,3 +160,6 @@ scale = Vector2(2, 2)
 [node name="startDungeon" parent="." instance=ExtResource("6_i6c23")]
 z_index = 100
 position = Vector2(974.09, 2307.97)
+
+[connection signal="body_entered" from="elevator/RigidBody2D/detector" to="elevator/RigidBody2D" method="_on_detection"]
+[connection signal="timeout" from="elevator/elevatorStarter" to="elevator/RigidBody2D" method="_on_elevator_timer_timeout"]
