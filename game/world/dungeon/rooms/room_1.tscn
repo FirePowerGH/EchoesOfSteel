@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://2ybbc0tkckkx"]
+[gd_scene load_steps=8 format=4 uid="uid://cpm4btbwr8ui7"]
 
 [ext_resource type="Texture2D" uid="uid://jlhry8l5cpyx" path="res://game/world/dungeon/rooms/sprites/backgrounds/room1Back.png" id="1_8uqn2"]
+[ext_resource type="Script" path="res://game/world/dungeon/rooms/rememberLevel.gd" id="1_ifdhc"]
 [ext_resource type="Texture2D" uid="uid://ntmn05vkplxj" path="res://game/world/dungeon/rooms/sprites/tileSet.png" id="2_wt4q1"]
+[ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="4_3cg7v"]
+[ext_resource type="PackedScene" uid="uid://dxqvmfwm23gx7" path="res://common/scripts/next_level.tscn" id="5_j3ohe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2xn4g"]
 texture = ExtResource("2_wt4q1")
@@ -110,7 +113,8 @@ physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_2xn4g")
 
-[node name="room1" type="Node2D"]
+[node name="1" type="Node2D"]
+script = ExtResource("1_ifdhc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(200, 117)
@@ -120,3 +124,9 @@ texture = ExtResource("1_8uqn2")
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 tile_map_data = PackedByteArray("AAAHAAoAAQAFAAQAAAAIAAoAAQAFAAQAAAAJAAoAAQAFAAQAAAAKAAoAAQAFAAQAAAALAAoAAQAFAAQAAAAMAAoAAQAFAAQAAAANAAoAAQAFAAQAAAAAAAoAAQAFAAQAAAABAAoAAQAFAAQAAAACAAoAAQAFAAQAAAADAAoAAQAFAAQAAAAEAAoAAQAFAAQAAAAFAAoAAQAFAAQAAAAGAAoAAQAFAAQAAAAOAAoAAQAFAAQAAAAPAAoAAQAFAAQAAAAQAAoAAQAFAAQAAAARAAoAAQAFAAQAAAASAAoAAQAFAAQAAAATAAoAAQAFAAQAAAAUAAoAAQAFAAQAAAAVAAoAAQAFAAQAAAAWAAoAAQAFAAQAAAAXAAoAAQAFAAQAAAAYAAoAAQAFAAQAAAA=")
 tile_set = SubResource("TileSet_4qdvs")
+
+[node name="Player" parent="." instance=ExtResource("4_3cg7v")]
+position = Vector2(12, 143)
+
+[node name="nextLevel" parent="." instance=ExtResource("5_j3ohe")]
+position = Vector2(389, 102)

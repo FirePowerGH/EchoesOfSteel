@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://b1thc8uk4scm2"]
+[gd_scene load_steps=7 format=4 uid="uid://b1thc8uk4scm2"]
 
 [ext_resource type="Texture2D" uid="uid://cduu6tkeg0o71" path="res://game/world/dungeon/rooms/sprites/backgrounds/startLevelBack.png" id="1_s7jga"]
 [ext_resource type="Texture2D" uid="uid://ntmn05vkplxj" path="res://game/world/dungeon/rooms/sprites/tileSet.png" id="2_xccr0"]
 [ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="3_qqjj1"]
+[ext_resource type="PackedScene" uid="uid://dxqvmfwm23gx7" path="res://common/scripts/next_level.tscn" id="4_odmkm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_unota"]
 texture = ExtResource("2_xccr0")
@@ -124,3 +125,6 @@ tile_set = SubResource("TileSet_w5suf")
 
 [node name="Player" parent="." instance=ExtResource("3_qqjj1")]
 position = Vector2(20, 147)
+
+[node name="nextLevel" parent="." instance=ExtResource("4_odmkm")]
+position = Vector2(390, 93)

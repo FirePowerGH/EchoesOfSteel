@@ -38,7 +38,6 @@ var num = 0
 
 func _ready():
 	dash_cooldown.timeout.connect(_on_DashCooldown_timeout)
-	#heartsUi.inithearts(hp)
 
 func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
