@@ -14,6 +14,8 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	if len(finishedLevels) >= 3:
 		get_tree().change_scene_to_file.call_deferred("res://game/world/dungeon/rooms/boss_room.tscn")
+		print(finishedLevels)
+		return
 	
 	for i in levels:
 		if i not in finishedLevels:

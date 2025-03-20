@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh8m6dvus1yga"]
+
+[ext_resource type="Script" path="res://common/scripts/backLevel.gd" id="1_mn4iy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jnhyn"]
+size = Vector2(20, 203)
+
+[node name="backLevel" type="Area2D"]
+collision_layer = 0
+script = ExtResource("1_mn4iy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jnhyn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

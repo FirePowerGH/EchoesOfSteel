@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://ntmn05vkplxj" path="res://game/world/dungeon/rooms/sprites/tileSet.png" id="2_gc65p"]
 [ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="4_nmide"]
 [ext_resource type="PackedScene" uid="uid://dxqvmfwm23gx7" path="res://common/scripts/next_level.tscn" id="5_rs6mr"]
+[ext_resource type="PackedScene" uid="uid://bh8m6dvus1yga" path="res://common/scripts/back_level.tscn" id="6_qwi3d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_82tjc"]
 texture = ExtResource("2_gc65p")
@@ -141,3 +142,6 @@ position = Vector2(13, 177)
 
 [node name="nextLevel" parent="." instance=ExtResource("5_rs6mr")]
 position = Vector2(389, 92)
+
+[node name="backLevel" parent="." instance=ExtResource("6_qwi3d")]
+position = Vector2(10, 86)
