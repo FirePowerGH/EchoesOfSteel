@@ -1,19 +1,27 @@
-[gd_scene load_steps=9 format=3 uid="uid://cm0mknmcddbpe"]
+[gd_scene load_steps=12 format=3 uid="uid://cm0mknmcddbpe"]
 
 [ext_resource type="Texture2D" uid="uid://7g0fpioyogyt" path="res://game/world/dungeon/elevator/background/gradient.png" id="1_e7m2t"]
 [ext_resource type="Texture2D" uid="uid://cgv24csv6ii7p" path="res://game/world/dungeon/elevator/background/pipes.png" id="2_w76o0"]
 [ext_resource type="Texture2D" uid="uid://b646ybs2qxs4j" path="res://game/world/dungeon/elevator/background/grand.png" id="3_e045m"]
 [ext_resource type="Texture2D" uid="uid://c74h474g8owpu" path="res://game/world/dungeon/elevator/elevator/elevator.png" id="4_syrt4"]
 [ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="4_voaxs"]
-[ext_resource type="PackedScene" uid="uid://c3ojtog3j5edf" path="res://common/scripts/start_dungeon.tscn" id="6_i6c23"]
+[ext_resource type="Texture2D" uid="uid://cj3rnurxgdnlc" path="res://game/world/dungeon/elevator/elevator/heis_back.png" id="5_ap7s5"]
+[ext_resource type="PackedScene" uid="uid://b3v4bqm2rnaeq" path="res://common/scripts/start_dungeon.tscn" id="6_i6c23"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qo7ga"]
-size = Vector2(97, 91)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gr5jq"]
+size = Vector2(90, 1120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2voto"]
+size = Vector2(96.5, 902.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k1x4l"]
 size = Vector2(286, 6.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lakpd"]
+size = Vector2(264, 20)
+
 [node name="Elevator" type="Node2D"]
+texture_filter = 1
 
 [node name="background" type="Node2D" parent="."]
 
@@ -32,26 +40,50 @@ z_index = 2
 position = Vector2(240, 1820)
 texture = ExtResource("3_e045m")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="background"]
+[node name="Collision" type="Node2D" parent="background"]
+
+[node name="FloorWallLeft" type="StaticBody2D" parent="background/Collision"]
 collision_layer = 16
 collision_mask = 0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="background/StaticBody2D"]
-position = Vector2(48.5, 263.5)
-shape = SubResource("RectangleShape2D_qo7ga")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background/Collision/FloorWallLeft"]
+position = Vector2(435, 560)
+shape = SubResource("RectangleShape2D_gr5jq")
+
+[node name="FloorWallRight" type="StaticBody2D" parent="background/Collision"]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background/Collision/FloorWallRight"]
+position = Vector2(48.75, 668.75)
+shape = SubResource("RectangleShape2D_2voto")
 
 [node name="elevator" type="Node2D" parent="."]
 
 [node name="RigidBody2D" type="RigidBody2D" parent="elevator"]
+collision_layer = 16
+collision_mask = 0
+lock_rotation = true
+freeze = true
+freeze_mode = 1
 
 [node name="Elevator" type="Sprite2D" parent="elevator/RigidBody2D"]
 z_index = 5
-position = Vector2(249, -839)
+position = Vector2(243.5, -840.5)
 texture = ExtResource("4_syrt4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="elevator/RigidBody2D"]
-position = Vector2(247, 222.75)
+position = Vector2(241.5, 221.25)
 shape = SubResource("RectangleShape2D_k1x4l")
+
+[node name="HeisBack" type="Sprite2D" parent="elevator/RigidBody2D"]
+z_index = 3
+position = Vector2(241.5, 158.5)
+texture = ExtResource("5_ap7s5")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="elevator/RigidBody2D"]
+position = Vector2(242.5, 88.5)
+shape = SubResource("RectangleShape2D_lakpd")
 
 [node name="Player" parent="." instance=ExtResource("4_voaxs")]
 z_index = 4
