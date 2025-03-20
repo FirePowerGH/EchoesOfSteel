@@ -10,16 +10,25 @@ extends RigidBody2D
 @onready var rightDoor = $RightDoor
 
 var elevatorMoving: bool = false
+var inVator: bool = false
 
 func _on_detection(_body: Node2D) -> void:
 	startTimer.start()
+	inVator = true
+
+func _on_detector_exited(body: Node2D) -> void:
+	inVator = false
 
 func _on_elevator_timer_timeout() -> void:
-	detector.monitoring = false
-	elevatorMoving = true
-	leftDoor.disabled = false
-	rightDoor.disabled = false
-	print("non-elevate")
+	if inVator:
+		detector.monitoring = false
+		elevatorMoving = true
+		leftDoor.disabled = false
+		rightDoor.disabled = false
+		print("non-elevate")
+	else:
+		print("returne")
+		return
 
 func _physics_process(delta: float) -> void:
 	if elevatorMoving:
