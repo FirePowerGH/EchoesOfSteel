@@ -2,20 +2,25 @@ extends Node
 
 var finishedLevels = []
 
-func updateList(newLevel: int) -> void:
+func updateList(newLevel: String) -> void:
 	if newLevel in finishedLevels:
 		return
 	
 	finishedLevels.append(newLevel)
 
-func adjacentLevels(level: int) -> Array:
-	print(level)
+func adjacentLevels(level: String) -> Array:
 	var index = finishedLevels.find(level)
+	var backLevel = false
+	var nextLevel = false
 	
 	if finishedLevels[-1] == level:
-		return [finishedLevels[index - 1], false]
+		nextLevel = false
+	else:
+		nextLevel = finishedLevels[index + 1]
 	
 	if index == 0:
-		return [false, finishedLevels[1]]
+		backLevel = false
+	else:
+		backLevel = finishedLevels[index - 1]
 	
-	return [finishedLevels[index - 1], finishedLevels[index + 1]]
+	return [backLevel, nextLevel]

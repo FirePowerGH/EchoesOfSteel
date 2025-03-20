@@ -139,4 +139,4 @@ z_index = 3
 position = Vector2(14, 147)
 
 [node name="nextLevel" parent="." instance=ExtResource("4_odmkm")]
-position = Vector2(390, 93)
+position = Vector2(407, 93)

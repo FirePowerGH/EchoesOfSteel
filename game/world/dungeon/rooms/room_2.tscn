@@ -141,7 +141,7 @@ z_index = 3
 position = Vector2(13, 177)
 
 [node name="nextLevel" parent="." instance=ExtResource("5_rs6mr")]
-position = Vector2(389, 92)
+position = Vector2(254, 82)
 
 [node name="backLevel" parent="." instance=ExtResource("6_qwi3d")]
 position = Vector2(-10, 91)
