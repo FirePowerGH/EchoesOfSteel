@@ -190,7 +190,7 @@ polygon = PackedVector2Array(488.078, -259.592, 480.589, 2022.87, 1036.69, 2019.
 
 [node name="Player" parent="." instance=ExtResource("4_voaxs")]
 z_index = 4
-position = Vector2(938.51, 2348.15)
+position = Vector2(28.7426, 191.201)
 scale = Vector2(2, 2)
 
 [node name="camConnect" type="RemoteTransform2D" parent="Player"]
@@ -201,14 +201,13 @@ z_index = 100
 position = Vector2(984.748, 2309.41)
 
 [node name="elevatorCam" type="Camera2D" parent="."]
-position = Vector2(938.509, 2348.15)
+position = Vector2(28.7426, 191.201)
 scale = Vector2(2, 2)
 zoom = Vector2(5, 5)
 limit_left = 0
 limit_top = 0
 limit_right = 383
 limit_bottom = 2000
-limit_smoothed = true
 position_smoothing_enabled = true
 editor_draw_limits = true
 
@@ -220,7 +219,6 @@ limit_left = 0
 limit_top = 1700
 limit_right = 780
 limit_bottom = 2000
-limit_smoothed = true
 position_smoothing_enabled = true
 editor_draw_limits = true
 
