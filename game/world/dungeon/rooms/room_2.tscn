@@ -150,7 +150,7 @@ position = Vector2(13, 177)
 remote_path = NodePath("../../Camera2D")
 
 [node name="nextLevel" parent="." instance=ExtResource("5_rs6mr")]
-position = Vector2(408, 131)
+position = Vector2(409.654, 55.4971)
 
 [node name="backLevel" parent="." instance=ExtResource("6_qwi3d")]
 position = Vector2(-5, 149)
