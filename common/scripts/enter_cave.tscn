@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4vcikp03dagy"]
+
+[ext_resource type="Script" path="res://common/scripts/enter_cave.gd" id="1_gwpud"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8fy4d"]
+size = Vector2(20, 240.77)
+
+[node name="enterCave" type="Area2D"]
+script = ExtResource("1_gwpud")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.0542221)
+shape = SubResource("RectangleShape2D_8fy4d")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

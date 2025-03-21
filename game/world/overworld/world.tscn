@@ -1,13 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://brxfqmqhyaq77"]
+[gd_scene load_steps=16 format=3 uid="uid://brxfqmqhyaq77"]
 
-[ext_resource type="Texture2D" uid="uid://jlrppfbbsrc7" path="res://game/world/overworld/sprites/boat_scene/new_backgrounds_0001s_0005_sky.png" id="1_5gfvd"]
-[ext_resource type="Texture2D" uid="uid://uh6i54o4ib4g" path="res://game/world/overworld/sprites/boat_scene/new_backgrounds_0001s_0001_reflection.png" id="2_6fp22"]
+[ext_resource type="Texture2D" uid="uid://cpu4nk5s88otn" path="res://game/world/overworld/sprites/boat_scene/new_backgrounds_0004_grass.png" id="2_nvtxi"]
+[ext_resource type="Texture2D" uid="uid://drtm0nev7rony" path="res://game/world/overworld/sprites/boat_scene/new_backgrounds_0006_sky.png" id="2_svse0"]
 [ext_resource type="Texture2D" uid="uid://c6k4oqp6ik1pa" path="res://game/world/overworld/sprites/boat_scene/new_backgrounds_0001s_0003_grass.png" id="3_7ak63"]
+[ext_resource type="Texture2D" uid="uid://c8s5f20clqrfc" path="res://game/world/overworld/sprites/boat_scene/new_backgrounds_0000_that-one-tree.png" id="3_7fksa"]
+[ext_resource type="Texture2D" uid="uid://4a1redukm6n0" path="res://game/world/overworld/sprites/boat_scene/new_backgrounds_0003_grass.png" id="3_vy1xe"]
 [ext_resource type="Texture2D" uid="uid://ccsdt8huegltg" path="res://game/world/overworld/sprites/boat_scene/new_backgrounds_0001s_0004_tree.png" id="4_18v8k"]
 [ext_resource type="Texture2D" uid="uid://wngykksgitbg" path="res://game/world/overworld/sprites/boat_scene/new_backgrounds_0001s_0002_boat.png" id="5_wgpye"]
 [ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="6_c0w2w"]
-[ext_resource type="PackedScene" uid="uid://nnf8kmff48wc" path="res://game/entities/enemies/meele/tiktik/tiktik.tscn" id="7_x7cei"]
+[ext_resource type="Texture2D" uid="uid://dywvvddouisjq" path="res://game/world/overworld/sprites/boat_scene/new_backgrounds_0005_piano.png" id="8_broqh"]
 [ext_resource type="PackedScene" uid="uid://riejkoadagrj" path="res://game/entities/enemies/ranged/turret/turret.tscn" id="8_k6kn6"]
+[ext_resource type="Texture2D" uid="uid://dfytjkbkavlbc" path="res://game/world/overworld/sprites/boat_scene/new_backgrounds_0001_stone1.png" id="9_3wfak"]
+[ext_resource type="Texture2D" uid="uid://dx11e5002ifjv" path="res://game/world/overworld/sprites/boat_scene/new_backgrounds_0002_ston2.png" id="10_edwwf"]
+[ext_resource type="PackedScene" uid="uid://c4vcikp03dagy" path="res://common/scripts/enter_cave.tscn" id="11_ni6vf"]
+[ext_resource type="Script" path="res://common/scripts/death_bodies.gd" id="14_vykh1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vgdf7"]
+size = Vector2(706.13, 129.479)
 
 [node name="World" type="Node2D"]
 
@@ -17,17 +26,22 @@ texture_filter = 1
 [node name="Skies" type="Node2D" parent="world"]
 texture_filter = 1
 
-[node name="Sky" type="Sprite2D" parent="world/Skies"]
-position = Vector2(427, -28)
-texture = ExtResource("1_5gfvd")
+[node name="background" type="Sprite2D" parent="world/Skies"]
+position = Vector2(2142, -115)
+texture = ExtResource("2_svse0")
 
 [node name="Foreground" type="Node2D" parent="world"]
-z_index = 1
+z_index = 999
 texture_filter = 1
 
 [node name="waterReflection" type="Sprite2D" parent="world/Foreground"]
-position = Vector2(427.5, 109)
-texture = ExtResource("2_6fp22")
+position = Vector2(853.499, 95)
+texture = ExtResource("2_nvtxi")
+
+[node name="bigTree" type="Sprite2D" parent="world/Foreground"]
+position = Vector2(1723, -28)
+scale = Vector2(0.995231, 0.995231)
+texture = ExtResource("3_7fksa")
 
 [node name="Ground" type="Node2D" parent="world"]
 z_index = 3
@@ -37,12 +51,18 @@ texture_filter = 1
 position = Vector2(666, -12)
 texture = ExtResource("3_7ak63")
 
+[node name="grass2" type="Sprite2D" parent="world/Ground"]
+position = Vector2(2996, -35)
+texture = ExtResource("3_vy1xe")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="world/Ground"]
 collision_layer = 16
 collision_mask = 0
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="world/Ground/StaticBody2D"]
-polygon = PackedVector2Array(480, 0, 533, -8, 853, -9, 853, 0)
+position = Vector2(-4157.28, 0)
+scale = Vector2(9.68834, 1)
+polygon = PackedVector2Array(479.161, -3, 483.084, -16, 871.489, -14, 871.489, 0)
 
 [node name="Objects" type="Node2D" parent="world"]
 z_index = 1
@@ -51,6 +71,11 @@ texture_filter = 1
 [node name="sakuraTree" type="Sprite2D" parent="world/Objects"]
 position = Vector2(686, -104)
 texture = ExtResource("4_18v8k")
+
+[node name="piano" type="Sprite2D" parent="world/Objects"]
+texture_filter = 1
+position = Vector2(555, -40)
+texture = ExtResource("8_broqh")
 
 [node name="Boat" type="Sprite2D" parent="world/Objects"]
 z_index = 3
@@ -65,15 +90,48 @@ collision_mask = 0
 polygon = PackedVector2Array(89.5, -7, 65.5, 17, -110.5, 17, -116.5, -7, -100.5, -4, -99.875, 3, -0.5, 3, 31.5, 0, 48.5, -4, 73.5, -8, 96.5, -15, 113.5, -15)
 one_way_collision = true
 
+[node name="caveEntranceR" type="Sprite2D" parent="world"]
+position = Vector2(4028, -145.5)
+texture = ExtResource("9_3wfak")
+
+[node name="caveEntranceL" type="Sprite2D" parent="world"]
+z_index = 999
+position = Vector2(4221, -145.5)
+texture = ExtResource("10_edwwf")
+
+[node name="enterCave" parent="world" instance=ExtResource("11_ni6vf")]
+position = Vector2(4201.02, -71.9104)
+scale = Vector2(1.74551, 1.74551)
+
 [node name="Player" parent="." instance=ExtResource("6_c0w2w")]
 z_index = 2
-position = Vector2(251, -44)
+position = Vector2(2869.31, -40.8188)
 scale = Vector2(1.5, 1.5)
 
-[node name="Tiktik" parent="." instance=ExtResource("7_x7cei")]
-position = Vector2(391, -37)
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
 
 [node name="Turret" parent="." instance=ExtResource("8_k6kn6")]
 z_index = 3
 position = Vector2(706, -89)
 rotation = -2.39553
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2869.31, -40.8188)
+scale = Vector2(1.5, 1.5)
+zoom = Vector2(5, 5)
+limit_left = 0
+limit_top = -277
+limit_right = 4286
+limit_bottom = 222
+position_smoothing_enabled = true
+editor_draw_limits = true
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("14_vykh1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(210.341, 100.112)
+shape = SubResource("RectangleShape2D_vgdf7")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_death_area_entered"]
