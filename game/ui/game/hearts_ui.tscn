@@ -45,6 +45,7 @@ animations = [{
 }]
 
 [node name="heartsUI" type="CanvasLayer"]
+layer = 128
 script = ExtResource("1_3x6pd")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]

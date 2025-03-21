@@ -33,9 +33,6 @@ var turn = false
 @onready var menu = $playerMenu
 
 @export var hp: int
-var initHearts = false
-
-var num = 0
 
 func _ready():
 	dash_cooldown.timeout.connect(_on_DashCooldown_timeout)
