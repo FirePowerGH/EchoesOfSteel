@@ -183,9 +183,36 @@ z_index = 4
 position = Vector2(26.2433, 186.202)
 scale = Vector2(2, 2)
 
+[node name="camConnect" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../elevatorCam")
+
 [node name="startDungeon" parent="." instance=ExtResource("6_i6c23")]
 z_index = 100
-position = Vector2(974.09, 2307.97)
+position = Vector2(984.748, 2309.41)
+
+[node name="elevatorCam" type="Camera2D" parent="."]
+position = Vector2(26.2433, 186.202)
+scale = Vector2(2, 2)
+zoom = Vector2(5, 5)
+limit_left = 0
+limit_top = 0
+limit_right = 383
+limit_bottom = 2000
+limit_smoothed = true
+position_smoothing_enabled = true
+editor_draw_limits = true
+
+[node name="tunnelCam" type="Camera2D" parent="."]
+position = Vector2(26.2433, 186.202)
+scale = Vector2(2, 2)
+zoom = Vector2(5, 5)
+limit_left = 0
+limit_top = 1700
+limit_right = 780
+limit_bottom = 2000
+limit_smoothed = true
+position_smoothing_enabled = true
+editor_draw_limits = true
 
 [connection signal="body_entered" from="elevator/RigidBody2D/detector" to="elevator/RigidBody2D" method="_on_detection"]
 [connection signal="body_exited" from="elevator/RigidBody2D/detector" to="elevator/RigidBody2D" method="_on_detector_exited"]

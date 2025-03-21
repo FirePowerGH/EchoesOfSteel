@@ -9,6 +9,8 @@ extends RigidBody2D
 @onready var leftDoor = $LeftDoor
 @onready var rightDoor = $RightDoor
 
+@onready var rootNode = get_tree().current_scene
+
 var elevatorMoving: bool = false
 var inVator: bool = false
 
@@ -36,5 +38,8 @@ func _physics_process(delta: float) -> void:
 			elevatorMoving = false
 			leftDoor.disabled = true
 			rightDoor.disabled = true
+			
+			rootNode.get_node("elevatorCam").enabled = false
+			rootNode.get_node("Player").get_node("camConnect").remote_path = "../../tunnelCam"
 		else:
 			global_position.y += speed * delta
