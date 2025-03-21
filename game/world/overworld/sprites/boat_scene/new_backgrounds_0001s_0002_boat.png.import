@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mkl64b7hukgw"
-path="res://.godot/imported/Block_tilesheet.png-cadf6c0575db659a5710ec49be54225e.ctex"
+uid="uid://wngykksgitbg"
+path="res://.godot/imported/new_backgrounds_0001s_0002_boat.png-cb33c79d762a5af815aeae8c84270eed.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/world/overworld/test_world/sprites/Block_tilesheet.png"
-dest_files=["res://.godot/imported/Block_tilesheet.png-cadf6c0575db659a5710ec49be54225e.ctex"]
+source_file="res://game/world/overworld/sprites/boat_scene/new_backgrounds_0001s_0002_boat.png"
+dest_files=["res://.godot/imported/new_backgrounds_0001s_0002_boat.png-cb33c79d762a5af815aeae8c84270eed.ctex"]
 
 [params]
 

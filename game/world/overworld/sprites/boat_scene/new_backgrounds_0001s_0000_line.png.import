@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hrope2wc8jma"
-path="res://.godot/imported/Wcastke.jpg-f65c4ee5c98e43c65fb73125aba3ecde.ctex"
+uid="uid://dq4giu0fx5pxs"
+path="res://.godot/imported/new_backgrounds_0001s_0000_line.png-9501e1dfb6106d80c33966f360c093a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/world/overworld/world1/sprites/Wcastke.jpg"
-dest_files=["res://.godot/imported/Wcastke.jpg-f65c4ee5c98e43c65fb73125aba3ecde.ctex"]
+source_file="res://game/world/overworld/sprites/boat_scene/new_backgrounds_0001s_0000_line.png"
+dest_files=["res://.godot/imported/new_backgrounds_0001s_0000_line.png-9501e1dfb6106d80c33966f360c093a3.ctex"]
 
 [params]
 

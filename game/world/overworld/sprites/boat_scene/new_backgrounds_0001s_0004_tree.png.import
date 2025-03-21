@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbi7p2g4sissj"
-path="res://.godot/imported/eButton.jpg-7230e1f6636af7b822e534e6195fa80b.ctex"
+uid="uid://ccsdt8huegltg"
+path="res://.godot/imported/new_backgrounds_0001s_0004_tree.png-b53e451c945c10b70314f65b79f54ca5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/world/overworld/world1/sprites/eButton.jpg"
-dest_files=["res://.godot/imported/eButton.jpg-7230e1f6636af7b822e534e6195fa80b.ctex"]
+source_file="res://game/world/overworld/sprites/boat_scene/new_backgrounds_0001s_0004_tree.png"
+dest_files=["res://.godot/imported/new_backgrounds_0001s_0004_tree.png-b53e451c945c10b70314f65b79f54ca5.ctex"]
 
 [params]
 

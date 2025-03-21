@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i61by6v28p60"
-path="res://.godot/imported/TileMapWIP.png-a8d60708e8446f6471875b19654f70ff.ctex"
+uid="uid://uh6i54o4ib4g"
+path="res://.godot/imported/new_backgrounds_0001s_0001_reflection.png-bc5438248d9115fc6a58842060159fa1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://game/world/overworld/world1/sprites/TileMapWIP.png"
-dest_files=["res://.godot/imported/TileMapWIP.png-a8d60708e8446f6471875b19654f70ff.ctex"]
+source_file="res://game/world/overworld/sprites/boat_scene/new_backgrounds_0001s_0001_reflection.png"
+dest_files=["res://.godot/imported/new_backgrounds_0001s_0001_reflection.png-bc5438248d9115fc6a58842060159fa1.ctex"]
 
 [params]
 
