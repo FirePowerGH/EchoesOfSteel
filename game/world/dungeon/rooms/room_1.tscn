@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cpm4btbwr8ui7"]
+[gd_scene load_steps=10 format=4 uid="uid://dpl2vphwkk8v3"]
 
 [ext_resource type="Texture2D" uid="uid://jlhry8l5cpyx" path="res://game/world/dungeon/rooms/sprites/backgrounds/room1Back.png" id="1_8uqn2"]
 [ext_resource type="Script" path="res://game/world/dungeon/rooms/rememberLevel.gd" id="1_ifdhc"]
@@ -150,7 +150,7 @@ position_smoothing_enabled = true
 editor_draw_limits = true
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 64
 script = ExtResource("7_5qtvo")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]

@@ -150,7 +150,7 @@ position_smoothing_enabled = true
 editor_draw_limits = true
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 64
 script = ExtResource("7_poa0g")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]

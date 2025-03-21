@@ -35,7 +35,9 @@ func updateHearts(hearts: int) -> void:
 		pass # kan adde support for healing later
 	else:
 		hp -= 1
-		print(hp)
 		var heartTexture = container.get_child(hp)
+		
+		if hp <= 0:
+			get_tree().change_scene_to_file.call_deferred("res://game/ui/death/death_screen.tscn")
 		
 		heartTexture.play("broken")
