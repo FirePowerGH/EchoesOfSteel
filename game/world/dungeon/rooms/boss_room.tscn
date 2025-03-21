@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=4 uid="uid://cypyquqwtyvyy"]
+[gd_scene load_steps=9 format=4 uid="uid://cypyquqwtyvyy"]
 
 [ext_resource type="Script" path="res://game/world/dungeon/rooms/rememberLevel.gd" id="1_f2cim"]
 [ext_resource type="Texture2D" uid="uid://ntmn05vkplxj" path="res://game/world/dungeon/rooms/sprites/tileSet.png" id="2_bibsy"]
 [ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="3_rnas5"]
 [ext_resource type="PackedScene" uid="uid://dxqvmfwm23gx7" path="res://common/scripts/next_level.tscn" id="4_6chc4"]
+[ext_resource type="Script" path="res://common/scripts/death_bodies.gd" id="5_w5bug"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2xn4g"]
 texture = ExtResource("2_bibsy")
@@ -112,6 +113,9 @@ physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 0
 sources/1 = SubResource("TileSetAtlasSource_2xn4g")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kwfq3"]
+distance = -280.0
+
 [node name="bossRoom" type="Node2D"]
 script = ExtResource("1_f2cim")
 
@@ -135,3 +139,9 @@ offset_top = 78.0
 offset_right = 302.0
 offset_bottom = 101.0
 text = "BIGBOSS FIHGT yippie :3"
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("5_w5bug")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("WorldBoundaryShape2D_kwfq3")

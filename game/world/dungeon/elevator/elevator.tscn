@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cm0mknmcddbpe"]
+[gd_scene load_steps=19 format=3 uid="uid://cm0mknmcddbpe"]
 
 [ext_resource type="Texture2D" uid="uid://7g0fpioyogyt" path="res://game/world/dungeon/elevator/background/gradient.png" id="1_e7m2t"]
 [ext_resource type="Texture2D" uid="uid://cgv24csv6ii7p" path="res://game/world/dungeon/elevator/background/pipes.png" id="2_w76o0"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cj3rnurxgdnlc" path="res://game/world/dungeon/elevator/elevator/heis_back.png" id="5_ap7s5"]
 [ext_resource type="Texture2D" uid="uid://c1wp1vwgep7ri" path="res://game/world/dungeon/elevator/background/tunnel.png" id="5_frqsv"]
 [ext_resource type="PackedScene" uid="uid://b3v4bqm2rnaeq" path="res://common/scripts/start_dungeon.tscn" id="6_i6c23"]
+[ext_resource type="Script" path="res://common/scripts/death_bodies.gd" id="9_cc65i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gr5jq"]
 size = Vector2(90, 1120)
@@ -178,6 +179,14 @@ disabled = true
 wait_time = 2.0
 one_shot = true
 
+[node name="deathBodies" type="Area2D" parent="."]
+scale = Vector2(1, 1)
+collision_layer = 0
+script = ExtResource("9_cc65i")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="deathBodies"]
+polygon = PackedVector2Array(488.078, -259.592, 480.589, 2022.87, 1036.69, 2019.12, 1040.44, 2530.29, -2.49158, 2520.93, -0.619119, 236.594, -45.5568, 201.019, -41.812, -282.062, -248.254, -221.327, -244.032, 2685.7, 1306.32, 2710.04, 1272.62, 1751.37, 733.363, 1756.99, 724.001, -270.827)
+
 [node name="Player" parent="." instance=ExtResource("4_voaxs")]
 z_index = 4
 position = Vector2(26.2433, 186.202)
@@ -217,3 +226,4 @@ editor_draw_limits = true
 [connection signal="body_entered" from="elevator/RigidBody2D/detector" to="elevator/RigidBody2D" method="_on_detection"]
 [connection signal="body_exited" from="elevator/RigidBody2D/detector" to="elevator/RigidBody2D" method="_on_detector_exited"]
 [connection signal="timeout" from="elevator/elevatorStarter" to="elevator/RigidBody2D" method="_on_elevator_timer_timeout"]
+[connection signal="body_entered" from="deathBodies" to="deathBodies" method="_on_death_area_entered"]

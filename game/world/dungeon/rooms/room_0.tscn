@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://crkukdexeifue"]
+[gd_scene load_steps=10 format=4 uid="uid://crkukdexeifue"]
 
 [ext_resource type="Texture2D" uid="uid://b2epd5kklut68" path="res://game/world/dungeon/rooms/sprites/backgrounds/room0Back.png" id="1_166th"]
 [ext_resource type="Script" path="res://game/world/dungeon/rooms/rememberLevel.gd" id="1_me311"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="4_d0qga"]
 [ext_resource type="PackedScene" uid="uid://dxqvmfwm23gx7" path="res://common/scripts/next_level.tscn" id="5_bha0b"]
 [ext_resource type="PackedScene" uid="uid://bh8m6dvus1yga" path="res://common/scripts/back_level.tscn" id="6_l62c1"]
+[ext_resource type="Script" path="res://common/scripts/death_bodies.gd" id="7_poa0g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2xn4g"]
 texture = ExtResource("2_7ye8e")
@@ -148,3 +149,12 @@ limit_bottom = 230
 limit_smoothed = true
 position_smoothing_enabled = true
 editor_draw_limits = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("7_poa0g")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-27, -103, -31, 230, 423, 231, 419, -110, 501, -113, 505, 344, -165, 343, -156, -102)
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_death_area_entered"]
