@@ -1,6 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://cm0mknmcddbpe"]
 
 [ext_resource type="Texture2D" uid="uid://7g0fpioyogyt" path="res://game/world/dungeon/elevator/background/gradient.png" id="1_e7m2t"]
+[ext_resource type="Script" path="res://game/world/dungeon/elevator/elevator.gd" id="1_oqq7r"]
 [ext_resource type="Texture2D" uid="uid://cgv24csv6ii7p" path="res://game/world/dungeon/elevator/background/pipes.png" id="2_w76o0"]
 [ext_resource type="Texture2D" uid="uid://b646ybs2qxs4j" path="res://game/world/dungeon/elevator/background/grand.png" id="3_e045m"]
 [ext_resource type="Script" path="res://game/world/dungeon/elevator/elevator/scripts/elevator.gd" id="4_4x2c5"]
@@ -36,6 +37,7 @@ size = Vector2(5.00122, 144.965)
 [node name="Elevator" type="Node2D"]
 texture_filter = 1
 scale = Vector2(0.800205, 0.800205)
+script = ExtResource("1_oqq7r")
 
 [node name="background" type="Node2D" parent="."]
 
@@ -189,7 +191,7 @@ polygon = PackedVector2Array(488.078, -259.592, 480.589, 2022.87, 1036.69, 2019.
 
 [node name="Player" parent="." instance=ExtResource("4_voaxs")]
 z_index = 4
-position = Vector2(26.2433, 186.202)
+position = Vector2(938.51, 2348.15)
 scale = Vector2(2, 2)
 
 [node name="camConnect" type="RemoteTransform2D" parent="Player"]
@@ -200,7 +202,7 @@ z_index = 100
 position = Vector2(984.748, 2309.41)
 
 [node name="elevatorCam" type="Camera2D" parent="."]
-position = Vector2(26.2433, 186.202)
+position = Vector2(938.509, 2348.15)
 scale = Vector2(2, 2)
 zoom = Vector2(5, 5)
 limit_left = 0

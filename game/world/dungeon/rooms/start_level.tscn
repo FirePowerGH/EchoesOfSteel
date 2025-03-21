@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="3_qqjj1"]
 [ext_resource type="PackedScene" uid="uid://dxqvmfwm23gx7" path="res://common/scripts/next_level.tscn" id="4_odmkm"]
 [ext_resource type="Script" path="res://common/scripts/death_bodies.gd" id="6_1a64x"]
+[ext_resource type="PackedScene" uid="uid://dc7lepq4ew1yj" path="res://common/scripts/back_elevator.tscn" id="6_8cvjr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kuo53"]
 texture = ExtResource("2_xccr0")
@@ -154,7 +155,6 @@ limit_left = 0
 limit_top = 0
 limit_right = 397
 limit_bottom = 230
-limit_smoothed = true
 position_smoothing_enabled = true
 editor_draw_limits = true
 
@@ -166,3 +166,5 @@ script = ExtResource("6_1a64x")
 polygon = PackedVector2Array(414, 229, -6, 235, -6, -134, -82, -137, -103, 359, 560, 370, 550, -162, 429, -152)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_death_area_entered"]
+[node name="backElevator" parent="." instance=ExtResource("6_8cvjr")]
+position = Vector2(-11, 96)
