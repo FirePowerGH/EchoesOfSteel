@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cq8dmx2hgmirw" path="res://game/world/dungeon/boss/sprites/cube/Untitled-3_0001_scratch.png" id="12_mf7ii"]
 [ext_resource type="Texture2D" uid="uid://cskj7sauhe5ih" path="res://game/world/dungeon/boss/sprites/cube/Untitled-3_0000_fixed.png" id="13_6be2y"]
 [ext_resource type="PackedScene" uid="uid://cl55f517jg7o" path="res://game/entities/enemies/common/hpController.tscn" id="15_dnj5m"]
-[ext_resource type="Theme" uid="uid://chc4m8t35y8ju" path="res://game/ui/default_theme.tres" id="18_ruw3p"]
+[ext_resource type="Theme" uid="uid://drcktdaf0fedg" path="res://game/ui/default_theme.tres" id="18_ruw3p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r5m1m"]
 atlas = ExtResource("10_sqyn5")

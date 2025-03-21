@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cd25w146y4r3g"]
+[gd_scene load_steps=14 format=4 uid="uid://cd25w146y4r3g"]
 
 [ext_resource type="Script" path="res://game/world/dungeon/rooms/rememberLevel.gd" id="1_fr661"]
 [ext_resource type="Texture2D" uid="uid://ypbgif2hulk3" path="res://game/world/dungeon/rooms/sprites/backgrounds/room2Back.png" id="1_p734y"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dxqvmfwm23gx7" path="res://common/scripts/next_level.tscn" id="5_rs6mr"]
 [ext_resource type="PackedScene" uid="uid://bh8m6dvus1yga" path="res://common/scripts/back_level.tscn" id="6_qwi3d"]
 [ext_resource type="Script" path="res://common/scripts/death_bodies.gd" id="7_h144p"]
+[ext_resource type="PackedScene" uid="uid://nnf8kmff48wc" path="res://game/entities/enemies/meele/tiktik/tiktik.tscn" id="8_6e7k1"]
+[ext_resource type="PackedScene" uid="uid://riejkoadagrj" path="res://game/entities/enemies/ranged/turret/turret.tscn" id="9_w4spa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_82tjc"]
 texture = ExtResource("2_gc65p")
@@ -173,5 +175,12 @@ script = ExtResource("7_h144p")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(-17, -95, -11, 232, 420, 235, 421, -119, 510, -117, 518, 316, -117, 315, -128, -96)
+
+[node name="Tiktik" parent="." instance=ExtResource("8_6e7k1")]
+position = Vector2(88, 75)
+
+[node name="Turret" parent="." instance=ExtResource("9_w4spa")]
+position = Vector2(257, 104)
+rotation = 3.17401
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_death_area_entered"]

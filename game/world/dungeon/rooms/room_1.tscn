@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://cpm4btbwr8ui7"]
+[gd_scene load_steps=14 format=4 uid="uid://cpm4btbwr8ui7"]
 
 [ext_resource type="Texture2D" uid="uid://jlhry8l5cpyx" path="res://game/world/dungeon/rooms/sprites/backgrounds/room1Back.png" id="1_8uqn2"]
 [ext_resource type="Script" path="res://game/world/dungeon/rooms/rememberLevel.gd" id="1_ifdhc"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://dxqvmfwm23gx7" path="res://common/scripts/next_level.tscn" id="5_j3ohe"]
 [ext_resource type="PackedScene" uid="uid://bh8m6dvus1yga" path="res://common/scripts/back_level.tscn" id="6_dw6i2"]
 [ext_resource type="Script" path="res://common/scripts/death_bodies.gd" id="7_5qtvo"]
+[ext_resource type="PackedScene" uid="uid://nnf8kmff48wc" path="res://game/entities/enemies/meele/tiktik/tiktik.tscn" id="8_pvu4c"]
+[ext_resource type="PackedScene" uid="uid://riejkoadagrj" path="res://game/entities/enemies/ranged/turret/turret.tscn" id="9_koww1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qjarl"]
 texture = ExtResource("2_wt4q1")
@@ -146,7 +148,7 @@ tile_map_data = PackedByteArray("AAAAAAsAAAAGAAIAAAABAAsAAAAGAAIAAAACAAsAAAAGAAI
 tile_set = SubResource("TileSet_4eurp")
 
 [node name="Player" parent="." instance=ExtResource("4_3cg7v")]
-position = Vector2(38, 145)
+position = Vector2(17, 159)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -158,7 +160,7 @@ position = Vector2(408, 98)
 position = Vector2(-10, 87)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(38, 145)
+position = Vector2(17, 159)
 zoom = Vector2(5, 5)
 limit_left = 0
 limit_top = 0
@@ -173,5 +175,18 @@ script = ExtResource("7_5qtvo")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(-25, -94, -21, 227, 421, 228, 420, -92, 508, -91, 514, 328, -132, 336, -129, -94)
+
+[node name="Tiktik" parent="." instance=ExtResource("8_pvu4c")]
+position = Vector2(133, 94)
+
+[node name="Turret" parent="." instance=ExtResource("9_koww1")]
+position = Vector2(183, 11)
+rotation = -1.59589
+
+[node name="Tiktik2" parent="." instance=ExtResource("8_pvu4c")]
+position = Vector2(244, 173)
+
+[node name="Tiktik3" parent="." instance=ExtResource("8_pvu4c")]
+position = Vector2(220, 94)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_death_area_entered"]

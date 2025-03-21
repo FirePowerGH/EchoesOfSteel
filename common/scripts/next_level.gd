@@ -19,7 +19,7 @@ func _on_body_entered(_body: Node2D) -> void:
 	var nextLevel = levelSecretary.adjacentLevels(String(room))[1]
 	
 	if len(finishedLevels) >= 3 && !nextLevel:
-		get_tree().change_scene_to_file.call_deferred("res://game/world/dungeon/rooms/boss_room.tscn")
+		get_tree().change_scene_to_file.call_deferred("res://game/world/dungeon/boss/boss_room.tscn")
 		return
 	
 	if nextLevel:

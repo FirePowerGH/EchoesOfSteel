@@ -21,4 +21,4 @@ func _process(delta: float) -> void:
 	elif hp <= 51:
 		sprite.play("crack")
 	else:
-		print("idk")
+		return

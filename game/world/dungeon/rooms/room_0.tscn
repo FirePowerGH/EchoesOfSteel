@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://crkukdexeifue"]
+[gd_scene load_steps=13 format=4 uid="uid://crkukdexeifue"]
 
 [ext_resource type="Texture2D" uid="uid://b2epd5kklut68" path="res://game/world/dungeon/rooms/sprites/backgrounds/room0Back.png" id="1_166th"]
 [ext_resource type="Script" path="res://game/world/dungeon/rooms/rememberLevel.gd" id="1_me311"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dxqvmfwm23gx7" path="res://common/scripts/next_level.tscn" id="5_bha0b"]
 [ext_resource type="PackedScene" uid="uid://bh8m6dvus1yga" path="res://common/scripts/back_level.tscn" id="6_l62c1"]
 [ext_resource type="Script" path="res://common/scripts/death_bodies.gd" id="7_poa0g"]
+[ext_resource type="PackedScene" uid="uid://nnf8kmff48wc" path="res://game/entities/enemies/meele/tiktik/tiktik.tscn" id="8_ou4gn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nn0cf"]
 texture = ExtResource("2_7ye8e")
@@ -140,7 +141,7 @@ tile_map_data = PackedByteArray("AAAOAAsAAAAHAAEAAAAOAAoAAAAHAAEAAAAOAAkAAAAHAAE
 tile_set = SubResource("TileSet_d77ek")
 
 [node name="Player" parent="." instance=ExtResource("4_d0qga")]
-position = Vector2(39, 146)
+position = Vector2(16, 159)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -152,7 +153,7 @@ position = Vector2(409, 96)
 position = Vector2(-10, 99)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(39, 146)
+position = Vector2(16, 159)
 zoom = Vector2(5, 5)
 limit_left = 0
 limit_top = 0
@@ -162,10 +163,16 @@ position_smoothing_enabled = true
 editor_draw_limits = true
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 64
 script = ExtResource("7_poa0g")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
 polygon = PackedVector2Array(-27, -103, -31, 230, 423, 231, 419, -110, 501, -113, 505, 344, -165, 343, -156, -102)
+
+[node name="Tiktik" parent="." instance=ExtResource("8_ou4gn")]
+position = Vector2(263, 29)
+
+[node name="Tiktik2" parent="." instance=ExtResource("8_ou4gn")]
+position = Vector2(140, 206)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_death_area_entered"]
