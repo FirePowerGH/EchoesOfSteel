@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cm0mknmcddbpe"]
+[gd_scene load_steps=20 format=3 uid="uid://cm0mknmcddbpe"]
 
 [ext_resource type="Texture2D" uid="uid://7g0fpioyogyt" path="res://game/world/dungeon/elevator/background/gradient.png" id="1_e7m2t"]
 [ext_resource type="Script" path="res://game/world/dungeon/elevator/elevator.gd" id="1_oqq7r"]
@@ -182,7 +182,6 @@ wait_time = 2.0
 one_shot = true
 
 [node name="deathBodies" type="Area2D" parent="."]
-scale = Vector2(1, 1)
 collision_layer = 0
 script = ExtResource("9_cc65i")
 
