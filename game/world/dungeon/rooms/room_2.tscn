@@ -122,6 +122,7 @@ physics_layer_0/collision_mask = 0
 sources/0 = SubResource("TileSetAtlasSource_elv1n")
 
 [node name="2" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_fr661")
 
 [node name="World" type="Node2D" parent="."]

@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://dc7lepq4ew1yj" path="res://common/scripts/back_elevator.tscn" id="6_8cvjr"]
 [ext_resource type="PackedScene" uid="uid://nnf8kmff48wc" path="res://game/entities/enemies/meele/tiktik/tiktik.tscn" id="8_yjs43"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kuo53"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_njgh3"]
 texture = ExtResource("2_xccr0")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -47,9 +47,9 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_awatk"]
 tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_kuo53")
+sources/0 = SubResource("TileSetAtlasSource_njgh3")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yiqy8"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wplel"]
 texture = ExtResource("2_xccr0")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -115,9 +115,10 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 16
 physics_layer_0/collision_mask = 0
-sources/0 = SubResource("TileSetAtlasSource_yiqy8")
+sources/0 = SubResource("TileSetAtlasSource_wplel")
 
 [node name="startLevel" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_b6lqn")
 
 [node name="World" type="Node2D" parent="."]
