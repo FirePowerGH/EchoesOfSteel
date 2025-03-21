@@ -1,0 +1,204 @@
+[gd_scene load_steps=28 format=3 uid="uid://cypyquqwtyvyy"]
+
+[ext_resource type="Script" path="res://game/world/dungeon/rooms/rememberLevel.gd" id="1_83ghx"]
+[ext_resource type="Texture2D" uid="uid://dw2iwoc7lsi06" path="res://game/world/dungeon/boss/sprites/background/boss_battle_rom_new_0002_wall.png" id="2_4t8qn"]
+[ext_resource type="Texture2D" uid="uid://bgtkr82yxxgkq" path="res://game/world/dungeon/boss/sprites/background/boss_battle_rom_new_0001_servers_front.png" id="3_1ve1k"]
+[ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="3_n1vrp"]
+[ext_resource type="Script" path="res://common/scripts/death_bodies.gd" id="4_becqe"]
+[ext_resource type="Texture2D" uid="uid://dcwnwvjctaiws" path="res://game/world/dungeon/boss/sprites/screens/boss_battle_rom_new_0000_TVs.png" id="4_vnybf"]
+[ext_resource type="Texture2D" uid="uid://ch2ap1166q158" path="res://game/world/dungeon/boss/sprites/screens/boss_battle_rom_new_0000s_0004_face.png" id="5_77y8i"]
+[ext_resource type="Texture2D" uid="uid://1s83uup7eq2f" path="res://game/world/dungeon/boss/sprites/screens/boss_battle_rom_new_0000s_0003_face.png" id="6_clska"]
+[ext_resource type="Texture2D" uid="uid://670lr3naovdg" path="res://game/world/dungeon/boss/sprites/screens/boss_battle_rom_new_0000s_0002_face.png" id="7_q8v86"]
+[ext_resource type="Texture2D" uid="uid://br0j77ulfvhle" path="res://game/world/dungeon/boss/sprites/screens/boss_battle_rom_new_0000s_0001_face.png" id="8_5ogy1"]
+[ext_resource type="Texture2D" uid="uid://dsl4xb2jrtscc" path="res://game/world/dungeon/boss/sprites/screens/boss_battle_rom_new_0000s_0000_face.png" id="9_r0sep"]
+[ext_resource type="Texture2D" uid="uid://5khdukx4ukec" path="res://game/world/dungeon/boss/sprites/cube/Untitled-3_0002_cracked.png" id="10_sqyn5"]
+[ext_resource type="Script" path="res://game/world/dungeon/boss/scripts/cube.gd" id="10_w4tsi"]
+[ext_resource type="Texture2D" uid="uid://w0erxl683pxy" path="res://game/world/dungeon/boss/sprites/cube/Untitled-3_0003_destroyed.png" id="11_8qnlx"]
+[ext_resource type="Texture2D" uid="uid://cq8dmx2hgmirw" path="res://game/world/dungeon/boss/sprites/cube/Untitled-3_0001_scratch.png" id="12_mf7ii"]
+[ext_resource type="Texture2D" uid="uid://cskj7sauhe5ih" path="res://game/world/dungeon/boss/sprites/cube/Untitled-3_0000_fixed.png" id="13_6be2y"]
+[ext_resource type="PackedScene" uid="uid://cl55f517jg7o" path="res://game/entities/enemies/common/hpController.tscn" id="15_dnj5m"]
+[ext_resource type="Theme" uid="uid://chc4m8t35y8ju" path="res://game/ui/default_theme.tres" id="18_ruw3p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r5m1m"]
+atlas = ExtResource("10_sqyn5")
+region = Rect2(0, 0, 125, 210)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2x4k2"]
+atlas = ExtResource("11_8qnlx")
+region = Rect2(0, 0, 239, 257)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pvro"]
+atlas = ExtResource("12_mf7ii")
+region = Rect2(0, 0, 125, 210)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0l3o"]
+atlas = ExtResource("13_6be2y")
+region = Rect2(0, 0, 125, 210)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7t8w3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r5m1m")
+}],
+"loop": true,
+"name": &"bigCrack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2x4k2")
+}],
+"loop": true,
+"name": &"broke",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pvro")
+}],
+"loop": true,
+"name": &"crack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0l3o")
+}],
+"loop": true,
+"name": &"fix",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ifr60"]
+size = Vector2(82.7926, 179.25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1jo6p"]
+size = Vector2(142.275, 129.414)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kwfq3"]
+distance = -280.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yaafm"]
+size = Vector2(399.831, 18.9491)
+
+[node name="bossRoom" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_83ghx")
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(200, 117)
+scale = Vector2(0.466059, 0.466059)
+texture = ExtResource("2_4t8qn")
+metadata/_edit_lock_ = true
+
+[node name="servers" type="Sprite2D" parent="."]
+z_index = 5
+position = Vector2(199.789, 185.277)
+scale = Vector2(0.466, 0.466)
+texture = ExtResource("3_1ve1k")
+metadata/_edit_lock_ = true
+
+[node name="screens" type="Node2D" parent="."]
+scale = Vector2(0.466, 0.466)
+
+[node name="BossBattleRomNew0000TVs" type="Sprite2D" parent="screens"]
+position = Vector2(424.893, 121.245)
+texture = ExtResource("4_vnybf")
+metadata/_edit_lock_ = true
+
+[node name="eyes" type="Node2D" parent="screens"]
+
+[node name="BossBattleRomNew0000s0004Face" type="Sprite2D" parent="screens/eyes"]
+position = Vector2(433.032, 77.0785)
+texture = ExtResource("5_77y8i")
+
+[node name="BossBattleRomNew0000s0003Face" type="Sprite2D" parent="screens/eyes"]
+position = Vector2(508.591, 183.182)
+texture = ExtResource("6_clska")
+
+[node name="BossBattleRomNew0000s0002Face" type="Sprite2D" parent="screens/eyes"]
+position = Vector2(351.847, 179.163)
+texture = ExtResource("7_q8v86")
+
+[node name="BossBattleRomNew0000s0001Face" type="Sprite2D" parent="screens/eyes"]
+position = Vector2(656.492, 132.542)
+texture = ExtResource("8_5ogy1")
+
+[node name="BossBattleRomNew0000s0000Face" type="Sprite2D" parent="screens/eyes"]
+position = Vector2(186.262, 135.757)
+texture = ExtResource("9_r0sep")
+
+[node name="Cube" type="StaticBody2D" parent="."]
+position = Vector2(201.5, 130.243)
+scale = Vector2(0.466, 0.466)
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("10_w4tsi")
+hp = 76
+
+[node name="cube" type="AnimatedSprite2D" parent="Cube"]
+sprite_frames = SubResource("SpriteFrames_7t8w3")
+animation = &"fix"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cube"]
+visible = false
+position = Vector2(-2.98837, 0.549347)
+shape = SubResource("RectangleShape2D_ifr60")
+
+[node name="hurtbox" type="Area2D" parent="Cube"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cube/hurtbox"]
+position = Vector2(2.5947, 26.8387)
+shape = SubResource("RectangleShape2D_1jo6p")
+
+[node name="HpController" parent="Cube/hurtbox" instance=ExtResource("15_dnj5m")]
+
+[node name="Player" parent="." instance=ExtResource("3_n1vrp")]
+z_index = 3
+position = Vector2(14, 140)
+scale = Vector2(1.4, 1.4)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("4_becqe")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("WorldBoundaryShape2D_kwfq3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(14, 140)
+scale = Vector2(1.4, 1.4)
+zoom = Vector2(5, 5)
+limit_left = 0
+limit_top = 0
+limit_right = 397
+limit_bottom = 230
+position_smoothing_enabled = true
+editor_draw_limits = true
+
+[node name="Ground" type="StaticBody2D" parent="."]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(199.28, 179.646)
+shape = SubResource("RectangleShape2D_yaafm")
+
+[node name="win" type="Label" parent="."]
+visible = false
+offset_left = 144.732
+offset_top = 24.4949
+offset_right = 255.732
+offset_bottom = 58.4949
+theme = ExtResource("18_ruw3p")
+theme_override_font_sizes/font_size = 32
+text = "You Won!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_death_area_entered"]
