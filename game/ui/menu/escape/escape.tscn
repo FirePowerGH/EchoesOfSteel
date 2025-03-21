@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://boawpakqpb38p"]
 
 [ext_resource type="Script" path="res://game/ui/menu/escape/scripts/pMenu.gd" id="1_hkaql"]
-[ext_resource type="Theme" uid="uid://beli73aymc43l" path="res://game/ui/default_theme.tres" id="2_fr4tb"]
+[ext_resource type="Theme" uid="uid://chc4m8t35y8ju" path="res://game/ui/default_theme.tres" id="2_fr4tb"]
 
 [node name="playerMenu" type="CanvasLayer"]
 process_mode = 3

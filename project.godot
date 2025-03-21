@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="epicVeedeeoGaymu"
-run/main_scene="res://game/ui/menu/main_menu/main_menu.tscn"
+run/main_scene="res://game/world/dungeon/elevator/elevator.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 sword="*res://game/entities/player/sword.gd"
 StartGame="*res://game/ui/menu/main_menu/scripts/button.gd"
 heartsUi="*res://game/ui/game/hearts_ui.tscn"
+levelSecretary="*res://common/scripts/levelSecretary.gd"
 
 [display]
 
@@ -77,3 +78,4 @@ menu={
 2d_physics/layer_3="projectilePlayer"
 2d_physics/layer_4="projectileEnemy"
 2d_physics/layer_5="solid"
+2d_physics/layer_6="objects"

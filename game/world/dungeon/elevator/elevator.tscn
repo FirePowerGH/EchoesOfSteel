@@ -1,0 +1,228 @@
+[gd_scene load_steps=20 format=3 uid="uid://cm0mknmcddbpe"]
+
+[ext_resource type="Texture2D" uid="uid://7g0fpioyogyt" path="res://game/world/dungeon/elevator/background/gradient.png" id="1_e7m2t"]
+[ext_resource type="Script" path="res://game/world/dungeon/elevator/elevator.gd" id="1_oqq7r"]
+[ext_resource type="Texture2D" uid="uid://cgv24csv6ii7p" path="res://game/world/dungeon/elevator/background/pipes.png" id="2_w76o0"]
+[ext_resource type="Texture2D" uid="uid://b646ybs2qxs4j" path="res://game/world/dungeon/elevator/background/grand.png" id="3_e045m"]
+[ext_resource type="Script" path="res://game/world/dungeon/elevator/elevator/scripts/elevator.gd" id="4_4x2c5"]
+[ext_resource type="Texture2D" uid="uid://b4jl5w7p84a5t" path="res://game/world/dungeon/elevator/background/steiner.png" id="4_74wmn"]
+[ext_resource type="Texture2D" uid="uid://c74h474g8owpu" path="res://game/world/dungeon/elevator/elevator/elevator.png" id="4_syrt4"]
+[ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="4_voaxs"]
+[ext_resource type="Texture2D" uid="uid://cj3rnurxgdnlc" path="res://game/world/dungeon/elevator/elevator/heis_back.png" id="5_ap7s5"]
+[ext_resource type="Texture2D" uid="uid://c1wp1vwgep7ri" path="res://game/world/dungeon/elevator/background/tunnel.png" id="5_frqsv"]
+[ext_resource type="PackedScene" uid="uid://b3v4bqm2rnaeq" path="res://common/scripts/start_dungeon.tscn" id="6_i6c23"]
+[ext_resource type="Script" path="res://common/scripts/death_bodies.gd" id="9_cc65i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gr5jq"]
+size = Vector2(90, 1120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2voto"]
+size = Vector2(96.4771, 901.999)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k1x4l"]
+size = Vector2(289.496, 32.9822)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lakpd"]
+size = Vector2(280.943, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aooy4"]
+size = Vector2(130.219, 8.49193)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8533s"]
+size = Vector2(5.00129, 144.965)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nvas4"]
+size = Vector2(5.00122, 144.965)
+
+[node name="Elevator" type="Node2D"]
+texture_filter = 1
+scale = Vector2(0.800205, 0.800205)
+script = ExtResource("1_oqq7r")
+
+[node name="background" type="Node2D" parent="."]
+
+[node name="Gradient" type="Sprite2D" parent="background"]
+z_index = 1
+position = Vector2(240, 560)
+texture = ExtResource("1_e7m2t")
+metadata/_edit_lock_ = true
+
+[node name="Pipes" type="Sprite2D" parent="background"]
+z_index = 6
+position = Vector2(240, 560)
+texture = ExtResource("2_w76o0")
+metadata/_edit_lock_ = true
+
+[node name="Grand" type="Sprite2D" parent="background"]
+z_index = 2
+position = Vector2(240, 1820)
+texture = ExtResource("3_e045m")
+metadata/_edit_lock_ = true
+
+[node name="Steiner" type="Sprite2D" parent="background"]
+z_index = 3
+position = Vector2(239, 2232.5)
+texture = ExtResource("4_74wmn")
+metadata/_edit_lock_ = true
+
+[node name="Stein1" type="Sprite2D" parent="background"]
+z_index = 3
+texture_filter = 1
+position = Vector2(419.892, 2446.87)
+scale = Vector2(1.70282, 1)
+texture = ExtResource("4_74wmn")
+region_enabled = true
+region_rect = Rect2(405.17, 426.683, 80.8301, 148.317)
+metadata/_edit_lock_ = true
+
+[node name="Tunnel" type="Sprite2D" parent="background"]
+z_index = 3
+position = Vector2(729, 2270)
+texture = ExtResource("5_frqsv")
+metadata/_edit_lock_ = true
+
+[node name="Collision" type="Node2D" parent="background"]
+visible = false
+z_index = 10
+
+[node name="FloorWallLeft" type="StaticBody2D" parent="background/Collision"]
+collision_layer = 16
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background/Collision/FloorWallLeft"]
+position = Vector2(435, 560)
+shape = SubResource("RectangleShape2D_gr5jq")
+
+[node name="FloorWallRight" type="StaticBody2D" parent="background/Collision"]
+collision_layer = 16
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="background/Collision/FloorWallRight"]
+position = Vector2(48.7, 669)
+shape = SubResource("RectangleShape2D_2voto")
+
+[node name="Tunnel" type="StaticBody2D" parent="background/Collision"]
+collision_layer = 16
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="background/Collision/Tunnel"]
+polygon = PackedVector2Array(391.15, 2369.39, 354.909, 2496.86, 361.157, 2520.6, 978.861, 2519.88, 979.785, 2374.06, 979.868, 2263.79, 979.055, 2232.9, 978.303, 2021.78, 482.547, 1909.34, 456.539, 2038.45, 461.003, 2051.35, 445.629, 2117.31, 462.491, 2176.32, 467.857, 2231.13, 467.806, 2264.87, 978.714, 2263.16, 979.038, 2374.15, 397.398, 2373.14)
+
+[node name="Rock" type="StaticBody2D" parent="background/Collision"]
+collision_layer = 16
+collision_mask = 0
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="background/Collision/Rock"]
+polygon = PackedVector2Array(-2.2401, 2045.65, 14.4411, 2089.86, 16.9433, 2127.39, 10.6878, 2149.91, 20.6197, 2246.92, 62.484, 2294.41, 76.2305, 2379.39, 129.967, 2389.39, 133.716, 2518.1, 0, 2518.73)
+
+[node name="elevator" type="Node2D" parent="."]
+
+[node name="RigidBody2D" type="RigidBody2D" parent="elevator"]
+collision_layer = 16
+collision_mask = 32
+mass = 2000.0
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+script = ExtResource("4_4x2c5")
+speed = 100.0
+
+[node name="Elevator" type="Sprite2D" parent="elevator/RigidBody2D"]
+z_index = 5
+position = Vector2(243.5, -840.5)
+texture = ExtResource("4_syrt4")
+metadata/_edit_lock_ = true
+
+[node name="HeisBack" type="Sprite2D" parent="elevator/RigidBody2D"]
+z_index = 3
+position = Vector2(242.438, 158.709)
+texture = ExtResource("5_ap7s5")
+metadata/_edit_lock_ = true
+
+[node name="Bottom" type="CollisionShape2D" parent="elevator/RigidBody2D"]
+z_index = 10
+position = Vector2(243.248, 234.441)
+shape = SubResource("RectangleShape2D_k1x4l")
+metadata/_edit_lock_ = true
+
+[node name="Top" type="CollisionShape2D" parent="elevator/RigidBody2D"]
+z_index = 10
+position = Vector2(250.971, 88.5)
+shape = SubResource("RectangleShape2D_lakpd")
+metadata/_edit_lock_ = true
+
+[node name="detector" type="Area2D" parent="elevator/RigidBody2D"]
+z_index = 10
+collision_layer = 0
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionShape2D" parent="elevator/RigidBody2D/detector"]
+position = Vector2(242.429, 218.123)
+shape = SubResource("RectangleShape2D_aooy4")
+
+[node name="LeftDoor" type="CollisionShape2D" parent="elevator/RigidBody2D"]
+z_index = 10
+position = Vector2(112.47, 149.96)
+shape = SubResource("RectangleShape2D_8533s")
+disabled = true
+
+[node name="RightDoor" type="CollisionShape2D" parent="elevator/RigidBody2D"]
+z_index = 10
+position = Vector2(372.406, 149.96)
+shape = SubResource("RectangleShape2D_nvas4")
+disabled = true
+
+[node name="elevatorStarter" type="Timer" parent="elevator"]
+wait_time = 2.0
+one_shot = true
+
+[node name="deathBodies" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("9_cc65i")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="deathBodies"]
+polygon = PackedVector2Array(488.078, -259.592, 480.589, 2022.87, 1036.69, 2019.12, 1040.44, 2530.29, -2.49158, 2520.93, -0.619119, 236.594, -45.5568, 201.019, -41.812, -282.062, -248.254, -221.327, -244.032, 2685.7, 1306.32, 2710.04, 1272.62, 1751.37, 733.363, 1756.99, 724.001, -270.827)
+
+[node name="Player" parent="." instance=ExtResource("4_voaxs")]
+z_index = 4
+position = Vector2(28.7426, 191.201)
+scale = Vector2(2, 2)
+
+[node name="camConnect" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../elevatorCam")
+
+[node name="startDungeon" parent="." instance=ExtResource("6_i6c23")]
+z_index = 100
+position = Vector2(984.748, 2309.41)
+
+[node name="elevatorCam" type="Camera2D" parent="."]
+position = Vector2(28.7426, 191.201)
+scale = Vector2(2, 2)
+zoom = Vector2(5, 5)
+limit_left = 0
+limit_top = 0
+limit_right = 383
+limit_bottom = 2000
+position_smoothing_enabled = true
+editor_draw_limits = true
+
+[node name="tunnelCam" type="Camera2D" parent="."]
+position = Vector2(26.2433, 186.202)
+scale = Vector2(2, 2)
+zoom = Vector2(5, 5)
+limit_left = 0
+limit_top = 1700
+limit_right = 780
+limit_bottom = 2000
+position_smoothing_enabled = true
+editor_draw_limits = true
+
+[connection signal="body_entered" from="elevator/RigidBody2D/detector" to="elevator/RigidBody2D" method="_on_detection"]
+[connection signal="body_exited" from="elevator/RigidBody2D/detector" to="elevator/RigidBody2D" method="_on_detector_exited"]
+[connection signal="timeout" from="elevator/elevatorStarter" to="elevator/RigidBody2D" method="_on_elevator_timer_timeout"]
+[connection signal="body_entered" from="deathBodies" to="deathBodies" method="_on_death_area_entered"]
