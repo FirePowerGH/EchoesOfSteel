@@ -23,13 +23,12 @@ func _on_detector_exited(body: Node2D) -> void:
 
 func _on_elevator_timer_timeout() -> void:
 	if inVator:
+		MusicController.playExplore()
 		detector.monitoring = false
 		elevatorMoving = true
 		leftDoor.disabled = false
 		rightDoor.disabled = false
-		print("non-elevate")
 	else:
-		print("returne")
 		return
 
 func _physics_process(delta: float) -> void:

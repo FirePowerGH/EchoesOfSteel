@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cypyquqwtyvyy"]
+[gd_scene load_steps=29 format=3 uid="uid://cypyquqwtyvyy"]
 
 [ext_resource type="Script" path="res://game/world/dungeon/rooms/rememberLevel.gd" id="1_83ghx"]
 [ext_resource type="Texture2D" uid="uid://dw2iwoc7lsi06" path="res://game/world/dungeon/boss/sprites/background/boss_battle_rom_new_0002_wall.png" id="2_4t8qn"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cskj7sauhe5ih" path="res://game/world/dungeon/boss/sprites/cube/Untitled-3_0000_fixed.png" id="13_6be2y"]
 [ext_resource type="PackedScene" uid="uid://cl55f517jg7o" path="res://game/entities/enemies/common/hpController.tscn" id="15_dnj5m"]
 [ext_resource type="Theme" uid="uid://drcktdaf0fedg" path="res://game/ui/default_theme.tres" id="18_ruw3p"]
+[ext_resource type="AudioStream" uid="uid://dx32e0t3wm4a4" path="res://common/music/A.I.N..mp3" id="19_uhd8w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r5m1m"]
 atlas = ExtResource("10_sqyn5")
@@ -200,5 +201,9 @@ theme_override_font_sizes/font_size = 32
 text = "You Won!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_uhd8w")
+parameters/looping = true
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_death_area_entered"]

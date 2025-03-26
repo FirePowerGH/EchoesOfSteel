@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://brxfqmqhyaq77"]
+[gd_scene load_steps=17 format=3 uid="uid://brxfqmqhyaq77"]
 
 [ext_resource type="Texture2D" uid="uid://cpu4nk5s88otn" path="res://game/world/overworld/sprites/boat_scene/new_backgrounds_0004_grass.png" id="2_nvtxi"]
 [ext_resource type="Texture2D" uid="uid://drtm0nev7rony" path="res://game/world/overworld/sprites/boat_scene/new_backgrounds_0006_sky.png" id="2_svse0"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ccsdt8huegltg" path="res://game/world/overworld/sprites/boat_scene/new_backgrounds_0001s_0004_tree.png" id="4_18v8k"]
 [ext_resource type="Texture2D" uid="uid://wngykksgitbg" path="res://game/world/overworld/sprites/boat_scene/new_backgrounds_0001s_0002_boat.png" id="5_wgpye"]
 [ext_resource type="PackedScene" uid="uid://sxwxwnqvibvf" path="res://game/entities/player/player.tscn" id="6_c0w2w"]
+[ext_resource type="AudioStream" uid="uid://b8vim6qayp3qq" path="res://common/music/PainoEasterEgg.mp3" id="8_ar40o"]
 [ext_resource type="Texture2D" uid="uid://dywvvddouisjq" path="res://game/world/overworld/sprites/boat_scene/new_backgrounds_0005_piano.png" id="8_broqh"]
 [ext_resource type="PackedScene" uid="uid://riejkoadagrj" path="res://game/entities/enemies/ranged/turret/turret.tscn" id="8_k6kn6"]
 [ext_resource type="Texture2D" uid="uid://dfytjkbkavlbc" path="res://game/world/overworld/sprites/boat_scene/new_backgrounds_0001_stone1.png" id="9_3wfak"]
@@ -76,6 +77,11 @@ texture = ExtResource("4_18v8k")
 texture_filter = 1
 position = Vector2(555, -40)
 texture = ExtResource("8_broqh")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="world/Objects/piano"]
+stream = ExtResource("8_ar40o")
+autoplay = true
+max_distance = 500.0
 
 [node name="Boat" type="Sprite2D" parent="world/Objects"]
 z_index = 3

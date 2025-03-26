@@ -8,6 +8,8 @@ extends StaticBody2D
 
 func _ready() -> void:
 	sprite.play("fix")
+	MusicController.stopMusic()
+	$"../Music".play()
 
 func _process(_delta: float) -> void:
 	if hp <= 1:
