@@ -130,7 +130,7 @@ freeze = true
 freeze_mode = 1
 contact_monitor = true
 script = ExtResource("4_4x2c5")
-speed = 100.0
+speed = 140.0
 
 [node name="Elevator" type="Sprite2D" parent="elevator/RigidBody2D"]
 z_index = 5
@@ -178,7 +178,6 @@ shape = SubResource("RectangleShape2D_nvas4")
 disabled = true
 
 [node name="elevatorStarter" type="Timer" parent="elevator"]
-wait_time = 2.0
 one_shot = true
 
 [node name="deathBodies" type="Area2D" parent="."]
