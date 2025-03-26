@@ -52,7 +52,7 @@ func _physics_process(delta: float) -> void:
 	var gravity = get_gravity()
 	
 	# Walljump
-	if is_on_wall():
+	if is_on_wall_only():
 		if velocity.y > 0:
 			gravity = Vector2(0, 320)
 		if Input.is_action_just_pressed(\"jump\"):
@@ -71,7 +71,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	
 	if Input.is_action_just_released(\"jump\"):
-		if velocity.y <   0:
+		if velocity.y < 0:
 			velocity.y = JUMP_VELOCITY / 4
 	
 	var was_on_floor = is_on_floor()
