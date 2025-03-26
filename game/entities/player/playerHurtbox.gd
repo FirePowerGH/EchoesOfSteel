@@ -9,6 +9,4 @@ func _on_area_entered(_area: Area2D) -> void:
 	
 	get_parent().hp = hp
 	if hp <= 0:
-		# add actual death logic..
-		print("player dead")
 		get_tree().change_scene_to_file.call_deferred("res://game/ui/death/death_screen.tscn")

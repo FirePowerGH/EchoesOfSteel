@@ -30,6 +30,5 @@ func _on_body_entered(_body: Node2D) -> void:
 			available.append(i)
 	
 	if !nextLevel:
-		print("choosing new level..")
 		var roomNum = available.pick_random()
 		get_tree().change_scene_to_file.call_deferred("res://game/world/dungeon/rooms/room_%s.tscn" % [str(roomNum)])

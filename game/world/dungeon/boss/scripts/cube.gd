@@ -9,7 +9,7 @@ extends StaticBody2D
 func _ready() -> void:
 	sprite.play("fix")
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if hp <= 1:
 		sprite.play("broke")
 		hp = 999999999

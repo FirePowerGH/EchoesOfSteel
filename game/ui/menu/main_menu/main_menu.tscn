@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://diu10ul04ueqw"]
 
-[ext_resource type="Theme" uid="uid://beli73aymc43l" path="res://game/ui/default_theme.tres" id="1_hkw1d"]
+[ext_resource type="Theme" uid="uid://drcktdaf0fedg" path="res://game/ui/default_theme.tres" id="1_hkw1d"]
 [ext_resource type="Script" path="res://game/ui/menu/main_menu/scripts/button.gd" id="1_wwg2j"]
 
 [node name="mainMenu" type="Control"]
