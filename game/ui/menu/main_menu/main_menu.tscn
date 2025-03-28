@@ -28,12 +28,15 @@ theme = ExtResource("1_hkw1d")
 
 [node name="play" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Start Game
-"
+text = "START GAME"
+
+[node name="Button" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "OPTIONS"
 
 [node name="exit" type="Button" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-text = "Exit"
+text = "EXIT"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_yr4mk")
