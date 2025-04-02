@@ -82,6 +82,7 @@ texture = ExtResource("8_broqh")
 stream = ExtResource("8_ar40o")
 autoplay = true
 max_distance = 500.0
+bus = &"sfx"
 
 [node name="Boat" type="Sprite2D" parent="world/Objects"]
 z_index = 3

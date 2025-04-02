@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwhyabd1t6d5c"]
+
+[ext_resource type="Script" path="res://game/ui/menu/main_menu/scripts/volume_slider.gd" id="1_4fj67"]
+
+[node name="VolumeSlider" type="HSlider"]
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_4fj67")
+
+[connection signal="drag_ended" from="." to="." method="_on_drag_ended"]
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]

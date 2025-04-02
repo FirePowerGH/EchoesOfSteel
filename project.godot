@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 sword="*res://game/entities/player/sword.gd"
-StartGame="*res://game/ui/menu/main_menu/scripts/button.gd"
+StartGame="*res://game/ui/menu/main_menu/scripts/mainMenu.gd"
 heartsUi="*res://game/ui/game/hearts_ui.tscn"
 levelSecretary="*res://common/scripts/levelSecretary.gd"
 MusicController="*res://common/autoload/MusicController.tscn"
@@ -28,6 +28,10 @@ MusicController="*res://common/autoload/MusicController.tscn"
 window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/resizable=false
+
+[editor]
+
+movie_writer/movie_file="/home/elev/Public/movie.avi"
 
 [input]
 

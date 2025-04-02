@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://drpveuayqpgs2"]
+
+[ext_resource type="Script" path="res://game/ui/menu/main_menu/scripts/audio.gd" id="1_58jha"]
+[ext_resource type="Theme" uid="uid://drcktdaf0fedg" path="res://game/ui/default_theme.tres" id="1_vupw6"]
+[ext_resource type="PackedScene" uid="uid://bwhyabd1t6d5c" path="res://game/ui/menu/main_menu/audio/volumeSlider.tscn" id="2_7arhf"]
+
+[node name="Audio" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_58jha")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme = ExtResource("1_vupw6")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="masterLabel" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "MASTER"
+
+[node name="master" parent="CenterContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_7arhf")]
+layout_mode = 2
+busName = "Master"
+
+[node name="musicLabel" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "MUSIC"
+
+[node name="music" parent="CenterContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_7arhf")]
+layout_mode = 2
+busName = "music"
+
+[node name="sfxLabel" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "SFX"
+
+[node name="sfx" parent="CenterContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_7arhf")]
+layout_mode = 2
+busName = "sfx"
+
+[node name="envLabel" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "ENVIRONMENT"
+
+[node name="env" parent="CenterContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_7arhf")]
+layout_mode = 2
+busName = "env"
+
+[node name="uiLabel" type="Label" parent="CenterContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "INTERFACE"
+
+[node name="ui" parent="CenterContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_7arhf")]
+layout_mode = 2
+busName = "ui"
+
+[node name="back" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "BACK"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/back" to="." method="_on_back_pressed"]
