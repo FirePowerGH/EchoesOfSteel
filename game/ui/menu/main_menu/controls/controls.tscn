@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbisoo1wjqjmq"]
+
+[ext_resource type="Script" path="res://game/ui/menu/main_menu/controls/controls.gd" id="1_dtpk1"]
+[ext_resource type="Theme" uid="uid://drcktdaf0fedg" path="res://game/ui/default_theme.tres" id="2_54uox"]
+
+[node name="Controls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dtpk1")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme = ExtResource("2_54uox")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LeftBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Up" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/LeftBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "UP"
+
+[node name="Left" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/LeftBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "LEFT"
+
+[node name="Jump" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/LeftBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "JUMP"
+
+[node name="RightBoxContainer" type="VBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Down" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/RightBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "DOWN"
+
+[node name="Right" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/RightBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "RIGHT"
+
+[node name="Dash" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer/RightBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "DASH"
+
+[node name="back" type="Button" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "BACK"
+
+[connection signal="pressed" from="CenterContainer/VBoxContainer/back" to="." method="_on_back_pressed"]
