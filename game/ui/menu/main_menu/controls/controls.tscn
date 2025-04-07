@@ -3,17 +3,11 @@
 [ext_resource type="Script" path="res://game/ui/menu/main_menu/controls/controls.gd" id="1_dtpk1"]
 [ext_resource type="Theme" uid="uid://drcktdaf0fedg" path="res://game/ui/default_theme.tres" id="2_54uox"]
 
-[node name="Controls" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Controls" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_dtpk1")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

@@ -18,3 +18,6 @@ func _process(_delta: float) -> void:
 		else:
 			self.show()
 			get_tree().paused = true
+
+func _on_options_pressed() -> void:
+	get_tree().change_scene_to_file("res://game/ui/menu/main_menu/options.tscn")
