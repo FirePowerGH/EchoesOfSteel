@@ -13,7 +13,7 @@ func get_action_key_text(action_name: String) -> String:
 	var events = InputMap.action_get_events(action_name)
 	for event in events:
 		if event is InputEventKey:
-			return OS.get_keycode_string(event.keycode)
+			return OS.get_keycode_string(event.physical_keycode)
 	return "Unbound"
 
 func update_keybind_label() -> void:	
@@ -22,4 +22,5 @@ func update_keybind_label() -> void:
 			if button is Button:
 				var action = button.name.to_lower()
 				var key = get_action_key_text(action)
+				print(action, " == ", key)
 				button.text = action.to_upper() + ": " + key
