@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://sxwxwnqvibvf"]
+[gd_scene load_steps=28 format=3 uid="uid://sxwxwnqvibvf"]
 
 [ext_resource type="Texture2D" uid="uid://bluw2ggxmxby1" path="res://game/entities/player/sprites/CharlieJumpFall.png" id="1_n5v76"]
 [ext_resource type="Texture2D" uid="uid://bcetc4sgh0wom" path="res://game/entities/player/sprites/IdleSprite.png" id="1_pn68t"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://3g5cpr5p6166" path="res://game/entities/player/sword.tscn" id="4_3ym6u"]
 [ext_resource type="Script" path="res://game/entities/player/playerHurtbox.gd" id="5_rpesr"]
 [ext_resource type="PackedScene" uid="uid://boawpakqpb38p" path="res://game/ui/menu/escape/escape.tscn" id="6_xseyl"]
+[ext_resource type="PackedScene" uid="uid://d2hdsg773xt1q" path="res://game/ui/menu/main_menu/options.tscn" id="8_t74kf"]
+[ext_resource type="PackedScene" uid="uid://bbisoo1wjqjmq" path="res://game/ui/menu/main_menu/controls/controls.tscn" id="9_8jiua"]
+[ext_resource type="PackedScene" uid="uid://drpveuayqpgs2" path="res://game/ui/menu/main_menu/audio/audio.tscn" id="10_u5uny"]
 
 [sub_resource type="GDScript" id="GDScript_hhx74"]
 script/source = "extends CharacterBody2D
@@ -372,4 +375,19 @@ shape = SubResource("CapsuleShape2D_nbvxb")
 
 [node name="playerMenu" parent="." instance=ExtResource("6_xseyl")]
 
+[node name="Options" parent="." instance=ExtResource("8_t74kf")]
+visible = false
+
+[node name="Controls" parent="." instance=ExtResource("9_8jiua")]
+visible = false
+
+[node name="Audio" parent="." instance=ExtResource("10_u5uny")]
+visible = false
+
 [connection signal="area_entered" from="hurtbox" to="hurtbox" method="_on_area_entered"]
+[connection signal="options" from="playerMenu" to="Options" method="_on_player_menu_options"]
+[connection signal="open_audio" from="Options" to="Audio" method="_on_options_open_audio"]
+[connection signal="open_controls" from="Options" to="Controls" method="_on_options_open_controls"]
+[connection signal="open_escape" from="Options" to="playerMenu" method="_on_options_open_escape"]
+[connection signal="open_options" from="Controls" to="Options" method="_on_controls_open_options"]
+[connection signal="open_options" from="Audio" to="Options" method="_on_audio_open_options"]
