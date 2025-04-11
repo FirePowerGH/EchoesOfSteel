@@ -35,3 +35,6 @@ func _on_exit() -> void:
 func _on_options_pressed() -> void:
 	print(get_tree().get_current_scene())
 	get_tree().change_scene_to_file("res://game/ui/menu/main_menu/options.tscn")
+
+func _on_tutorial_pressed() -> void:
+	get_tree().change_scene_to_file("res://game/world/tutorial/tutorial.tscn")
