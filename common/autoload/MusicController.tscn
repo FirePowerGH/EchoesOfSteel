@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://common/autoload/music_controller.gd" id="1_6doco"]
 
 [node name="MusicController" type="Node"]
+process_mode = 3
 script = ExtResource("1_6doco")
 
 [node name="music" type="AudioStreamPlayer" parent="."]

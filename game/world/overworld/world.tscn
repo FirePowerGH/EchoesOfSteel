@@ -28,7 +28,7 @@ texture_filter = 1
 texture_filter = 1
 
 [node name="background" type="Sprite2D" parent="world/Skies"]
-position = Vector2(2142, -115)
+position = Vector2(2144, -118)
 texture = ExtResource("2_svse0")
 
 [node name="Foreground" type="Node2D" parent="world"]
@@ -86,7 +86,7 @@ bus = &"sfx"
 
 [node name="Boat" type="Sprite2D" parent="world/Objects"]
 z_index = 3
-position = Vector2(289.5, -17)
+position = Vector2(289.511, -18.5046)
 texture = ExtResource("5_wgpye")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="world/Objects/Boat"]

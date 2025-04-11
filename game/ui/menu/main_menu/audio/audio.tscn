@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://game/ui/menu/main_menu/scripts/audio.gd" id="1_58jha"]
 [ext_resource type="Theme" uid="uid://drcktdaf0fedg" path="res://game/ui/default_theme.tres" id="1_vupw6"]
-[ext_resource type="PackedScene" path="res://game/ui/menu/main_menu/audio/volumeSlider.tscn" id="2_7arhf"]
+[ext_resource type="PackedScene" uid="uid://bwhyabd1t6d5c" path="res://game/ui/menu/main_menu/audio/volumeSlider.tscn" id="2_7arhf"]
 
 [node name="Audio" type="CanvasLayer"]
 process_mode = 3
