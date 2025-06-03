@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhm36mifaf1s1"]
+
+[ext_resource type="Script" path="res://game/world/tutorial/keybind.gd" id="1_sayqn"]
+
+[node name="Keybind" type="Label"]
+script = ExtResource("1_sayqn")
